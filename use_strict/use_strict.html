@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>use_strict</title>
+		<meta name="description" content="">
+		<meta name="author" content="wangle">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+	</head>
+
+	<body>
+		<script>
+		
+			(function(){
+				"use strict";
+				//反例
+				a = 2;			//未声明
+				var b = 012;	//0开头
+				var static = 1; //保留字
+				var eval=function(){};//eval定义
+				function fn(){console.log(fn.caller);};fn(); //caller callee不可访问
+				
+				
+			})();
+			
+		</script>
+	</body>
+</html>
