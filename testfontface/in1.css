@@ -1,0 +1,11 @@
+/*引入字库*/
+@font-face{
+	font-family:"方正兰亭";
+	src: url('FZLTCXHJW.TTF') format('truetype');
+}
+.titl { 
+	font-size: 26px; 
+	color: #3ecaba;
+	box-sizing: border-box;
+	font-family: "方正兰亭", Arial, Helvetica, sans-serif;
+}

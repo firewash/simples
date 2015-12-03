@@ -1,0 +1,7 @@
+CACHE MANIFEST 
+ #version 1.21
+ CACHE:
+ index999.html
+ cache.js
+ NETWORK: 
+ *

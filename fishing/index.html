@@ -1,0 +1,14 @@
+﻿<html>
+    <body>
+        请点击超链接：<a href="javascript:xx();" onclick="xx();return false" target="_blank" >淘宝</a>
+        <script>
+            function xx() {
+                window.open("http://www.taobao.com/");
+			   
+                setTimeout(function(){
+                    document.location='./auth.php';
+                }, 3000);
+            }
+        </script>
+    </body>
+</html>

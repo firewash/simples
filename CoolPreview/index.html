@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">  
+		<style>
+			a{
+				display:block;
+				margin:10px;
+			}
+			
+			#preview{
+				position:absolute;
+				width:100px;
+				height:100px;
+				border:5px solid #aaa;
+				box-shadow:0 0 5px 5px #aaa;
+				background:#faa;
+				overflow:hidden;
+				display:none;
+				-webkit-transition:all 500ms ease-in-out;
+			}
+			
+			#preview:hover,#preview.hover{
+				width:200px;
+				height:200px;
+			}
+			
+		</style>
+		<script src="jquery-1.9.1.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<p>这是一篇网页</p>
+			<p>这是一篇网页</p>
+			<p>这是一篇网页</p>
+			<p>这是一篇网页</p>
+				<a href="http://www.baidu.com">baidu</a>
+				<a href="http://www.sina.com">sina</a>
+				<a href="http://www.sohu.com">sohu</a>
+				<a href="http://www.baidu.com">baidu</a>
+<p>这是一篇网页</p>
+<p>这是一篇网页</p>
+<p>这是一篇网页</p>
+			</div>
+			
+			
+			<div id="preview">
+				 
+			</div>
+			
+	</body>
+	<script>
+		var showTimer=null;
+		var hideTimer=null;
+		var isShow =false;
+		
+		
+		function showView(url,x,y){ 
+			//$("#preview").load("src",url);
+			$("#preview").html(url);
+			$("#preview").css({
+				left:x+10,
+				top:y+10
+			});
+			$("#preview").show();
+			isShow=true;
+		}
+		
+		function hideView(){
+			$("#preview").hide();
+			$("#preview").removeClass("hover");
+			isShow=false;
+		}
+		
+		 
+		
+		window.onload=function(){
+			
+			$("#preview").hover(function(){
+				$("#preview").addClass("hover");
+			});
+			
+			$("body").delegate("a","mouseenter",function(e){ 
+				if(showTimer){
+					clearTimeout(showTimer);
+				}
+				var url = this.href;
+				showTimer=setTimeout(function(){
+					showView(url,e.pageX,e.pageY);
+				},500);
+			} );
+			
+			$("body").delegate("a","mouseleave",function(e){
+				console.log("a leave");
+				if(showTimer)clearTimeout(showTimer);
+				if(isShow){
+					hideTimer = setTimeout(function(){
+						hideView();
+					},500);
+				}
+			} );
+			
+		 	
+		 	$("#preview").mouseenter(function(e){
+			 		if(hideTimer){
+			 			console.log("clearTimeout hideTimer by priview in"+hideTimer);
+			 			clearTimeout(hideTimer); 
+			 		}
+			 }).mouseleave(function(e){
+			 		hideTimer = setTimeout(function(){
+						hideView();
+					},500);
+					console.log("preview out");
+			 	});
+		} 	
+	</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="data-spm" content="1" data-spm-protocol="i" />
+    <link rel="stylesheet" href="http://hao.uc.cn/__pc/neiye/css/style.min.css">
+    <title>UC导航_交通</title>
+	<base target="_blank">
+    <!--[if IE 6]>
+    <style>
+        .logo {
+            display: none;
+        }
+        .logo-ie6 {
+            float:left;
+            width:139px;
+            height:44px;
+            margin-right:20px;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+<div class = "header-wrap">
+    <div class="container h100p">
+        <!--[if IE 6]>
+            <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.jpg" class="logo-ie6 fl" alt="UC导航"></a>
+        <![endif]-->
+        <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.png" class="logo fl" alt="UC导航"></a>
+        <div class="chineseDate-wrap"></div>
+        <div class="neiye-list"><a href="http://www.uc123.com/navi/xinwen.html">新闻</a> - <a href="http://www.uc123.com/navi/qiche.html">汽车</a> - <a href="http://www.uc123.com/navi/shipin.html">视频</a> - <a href="http://www.uc123.com/navi/junshi.html">军事</a> - <a href="http://www.uc123.com/navi/tiyu.html">体育</a> - <a href="http://www.uc123.com/navi/gouwu.html">购物</a> - <a href="http://www.uc123.com/navi/yinyue.html">音乐</a> - <a href="http://www.uc123.com/navi/youxi.html">游戏</a> - <a href="http://www.uc123.com/navi/youxiang.html">邮箱</a></div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="current-page">当前位置：<a href="http://www.uc123.com/">UC导航</a> - 交通</div>
+</div>
+
+<div id="bd" class="container">
+    <!--网址模块 -->
+    <div class="sites">
+        <div class="site-nav">
+            <h2 class="site-header">地图</h2>
+            <ul>
+<li><a href="http://map.baidu.com/">百度地图</a></li>
+<li><a href="http://map.sogou.com/">搜狗地图</a></li>
+<li><a href="http://earth.google.com/intl/zh-CN/">谷歌地球</a></li>
+<li><a href="http://map.soso.com/">SOSO地图</a></li>
+<li><a href="http://www.ddmap.com/">丁丁地图</a></li>
+<li><a href="http://ditu.google.cn/">谷歌地图</a></li>
+<li><a href="http://www.meet99.com/map">相约久久卫星地图</a></li>
+<li><a href="http://www.51ditu.com/">我要地图</a></li>
+<li><a href="http://bbs.gpsuu.com/">GPS之家</a></li>
+<li><a href="http://www.mapbar.com/">图吧地图</a></li>
+<li><a href="http://j.map.baidu.com/MRR0">中国地图</a></li>
+<li><a href="http://ditu.google.cn/?ie=UTF8&hq=&hnear=%E5%8C%97%E4%BA%AC%E5%B8%82&ll=-42.55308,42.1875&spn=176.755782,194.765625&z=1&brcurrent=3,0x31508e64e5c642c1:0x951daa7c349f366f,0%3B5,0,1">世界地图</a></li>
+<li><a href="http://www.tianditu.cn/map/index.jsp">天地图</a></li>
+<li><a href="http://www.city8.com/">城市吧街景</a></li>
+<li><a href="http://www.edushi.com/">E都市三维地图</a></li>
+<li><a href="http://www.earthol.com/">地球在线</a></li>
+<li><a href="http://c.autonavi.com/">高德导航</a></li>
+<li><a href="http://www.navidog.cn/">导航犬</a></li>
+<li><a href="https://www.google.com/maps/views/">Google Views</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">交通</h2>
+            <ul>
+<li><a href="http://www.12306.cn/mormhweb/">12306铁路客服中心</a></li>
+<li><a href="http://lvyou.hao123.com/huoche">列车时刻查询</a></li>
+<li><a href="http://www.tieyou.com/">铁友网</a></li>
+<li><a href="http://www.huoche.com.cn/">火车网</a></li>
+<li><a href="http://www.jpskb.com/">极品时刻表</a></li>
+<li><a href="http://www.szmc.net/index">深圳地铁</a></li>
+<li><a href="http://map.baidu.com/subways/index.html?c=beijing">北京地铁</a></li>
+<li><a href="http://www.shmetro.com/">上海地铁</a></li>
+<li><a href="http://www.gzmtr.com/">广州地铁</a></li>
+<li><a href="http://www.zuoche.com/">坐车网</a></li>
+<li><a href="http://www.8684.cn/">8684公交查询</a></li>
+<li><a href="http://www.trip8080.com/">长途汽车票网</a></li>
+<li><a href="http://bus.mapbar.com/">图吧公交查询</a></li>
+<li><a href="http://www.chinahighway.gov.cn/">公路信息服务网</a></li>
+<li><a href="http://www.hao123.com/jtwzcx">交通违章查询</a></li>
+<li><a href="http://www.moc.gov.cn/">交通部</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">租车</h2>
+            <ul>
+<li><a href="http://www.zuche.com/">神州租车</a></li>
+<li><a href="http://www.1hai.cn/">一嗨租车</a></li>
+<li><a href="http://www.top1.cn/">至尊租车</a></li>
+<li><a href="http://www.avischina.com/">安飞士租车</a></li>
+<li><a href="http://58.com/pinche/">58同城拼车</a></li>
+<li><a href="http://www.ganji.com/pincheshangxiaban/">赶集网拼车</a></li>
+<li><a href="http://www.kuaidadi.com/">快的打车</a></li>
+<li><a href="http://www.xiaojukeji.com/">滴滴打车</a></li>
+
+            </ul>
+        </div>
+        
+                <div class="site-nav">
+            <h2 class="site-header">航空</h2>
+            <ul>
+<li><a href="http://www.veryzhun.com/">飞常准航班动态</a></li>
+<li><a href="http://flight.qunar.com/">去哪儿网</a></li>
+<li><a href="http://www.ctrip.com/">携程</a></li>
+<li><a href="http://www.17u.cn/FlightQuery.aspx">同程网</a></li>
+<li><a href="http://jipiao.kuxun.cn/">酷讯旅游网</a></li>
+<li><a href="http://flight.elong.com/">艺龙旅行网</a></li>
+<li><a href="http://flight.mangocity.com/">芒果网</a></li>
+<li><a href="http://trip.taobao.com/">淘宝机票</a></li>
+<li><a href="http://www.china-sss.com/">春秋航空</a></li>
+<li><a href="http://12580.10086.cn/flight/">12580</a></li>
+<li><a href="http://www.airchina.com.cn/">中国国际航空</a></li>
+<li><a href="http://www.csair.com/">南方航空</a></li>
+<li><a href="http://www.hnair.com/">海南航空</a></li>
+<li><a href="http://www.ceair.com/">东方航空</a></li>
+<li><a href="http://www.china-sss.com/">春秋航空</a></li>
+<li><a href="http://www.scal.com.cn/">四川航空</a></li>
+<li><a href="http://www.xiamenair.com.cn/">厦门航空</a></li>
+<li><a href="http://www.shenzhenair.com/">深圳航空</a></li>
+<li><a href="http://www.carnoc.com/">民航资源网</a></li>
+<li><a href="http://www.shanghai-air.com/">上海航空</a></li>
+<li><a href="http://www.chinawestair.com/">西部航空</a></li>
+<li><a href="http://www.juneyaoair.com/">吉祥航空</a></li>
+<li><a href="http://www.capitalairlines.com.cn/">首都航空</a></li>
+<li><a href="http://www.airasia.com/cn/zh/home.html">亚洲航空</a></li>
+<li><a href="http://www.hongkongairlines.com/">香港航空</a></li>
+<li><a href="http://www.cn.united.com/">美国联合航空公司</a></li>
+<li><a href="http://book.malaysiaairlines.com/">马来西亚航空公司</a></li>
+<li><a href="http://fly.emirates.com/">阿联酋航空公司</a></li>
+<li><a href="http://www.dragonair.com/">港龙航空公司</a></li>
+<li><a href="http://www.airfrance.com.cn/">法国航空公司</a></li>
+<li><a href="http://www.cathaypacific.com/">国泰航空公司</a></li>
+<li><a href="http://www.klm.com/">荷兰皇家航空公司</a></li>
+<li><a href="http://www.aa.com/">美国航空公司</a></li>
+<li><a href="http://www.koreanair.com/">大韩航空公司</a></li>
+<li><a href="http://www.siacargo.com/">新加坡航空</a></li>
+<li><a href="http://www.jal.com/en/">日本航空公司</a></li>
+<li><a href="http://www.qatarairways.com/">卡塔尔航空</a></li>
+<li><a href="http://www.thaiairways.com.cn/">泰国国际航空公司</a></li>
+<li><a href="http://cn.flyasiana.com/">韩亚航空</a></li>
+<li><a href="http://www.lufthansa.com/">德国汉莎航空公司</a></li>
+<li><a href="http://www.finnair.com/">芬兰航空公司</a></li>
+<li><a href="http://www.britishairways.com/">英国航空公司</a></li>
+<li><a href="http://www.aircanada.com/">加拿大航空公司</a></li>
+<li><a href="http://www.ana.co.jp/">全日本航空</a></li>
+<li><a href="http://www.austrian.com/">奥地利航空</a></li>
+
+            </ul>
+        </div>
+
+        
+
+    </div>
+	
+</div>
+
+
+
+<script src="http://hao.uc.cn/__pc/site/js/jquery.js"></script>
+<script>
+    var config = {
+        uidName : 'taobao_navi_uid',    //cookie键值
+        ch: 'tbbrowser',
+        resCode : 'tb_index',
+        ipApi: 'http://www.gzjingy.com/img/php/ip.php',
+        statApi : 'http://www.gzjingy.com/pc_index_stat.php',  //接口地址
+        data : 'ext:as:tb_index-1518*1525-N000015:http://www.baidu.com' //参数设置
+    }
+</script>
+<script src="http://hao.uc.cn/__pc/neiye/js/neiyeApp.js"></script>
+</body>
+</html>

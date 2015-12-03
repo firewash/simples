@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="data-spm" content="1" data-spm-protocol="i" />
+    <link rel="stylesheet" href="http://hao.uc.cn/__pc/neiye/css/style.min.css">
+    <title>UC导航_摄影</title>
+	<base target="_blank">
+    <!--[if IE 6]>
+    <style>
+        .logo {
+            display: none;
+        }
+        .logo-ie6 {
+            float:left;
+            width:139px;
+            height:44px;
+            margin-right:20px;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+<div class = "header-wrap">
+    <div class="container h100p">
+        <!--[if IE 6]>
+            <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.jpg" class="logo-ie6 fl" alt="UC导航"></a>
+        <![endif]-->
+        <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.png" class="logo fl" alt="UC导航"></a>
+        <div class="chineseDate-wrap"></div>
+        <div class="neiye-list"><a href="http://www.uc123.com/navi/xinwen.html">新闻</a> - <a href="http://www.uc123.com/navi/qiche.html">汽车</a> - <a href="http://www.uc123.com/navi/shipin.html">视频</a> - <a href="http://www.uc123.com/navi/junshi.html">军事</a> - <a href="http://www.uc123.com/navi/tiyu.html">体育</a> - <a href="http://www.uc123.com/navi/gouwu.html">购物</a> - <a href="http://www.uc123.com/navi/yinyue.html">音乐</a> - <a href="http://www.uc123.com/navi/youxi.html">游戏</a> - <a href="http://www.uc123.com/navi/youxiang.html">邮箱</a></div>
+    </div>
+</div>
+<div class="container">
+	<div class="current-page">当前位置：<a href="http://www.uc123.com/">UC导航</a> - 摄影</div>
+</div>
+
+<div id="bd" class="container">
+    <!--网址模块 -->
+    <div class="sites">
+        <div class="site-nav">
+            <h2 class="site-header">摄影综合</h2>
+            <ul>
+<li><a href="http://www.xitek.com/">色影无忌</a></li>
+<li><a href="http://www.fengniao.com/">蜂鸟网</a></li>
+<li><a href="http://www.cphoto.net/">中国摄影在线</a></li>
+<li><a href="http://www.sheying8.com/">摄影吧</a></li>
+<li><a href="http://www.dpnet.com.cn/">迪派影像</a></li>
+<li><a href="http://www.nphoto.net/">新摄影</a></li>
+<li><a href="http://xiuxiu.meitu.com/">美图秀秀</a></li>
+<li><a href="http://www.xiangshu.com/">橡树摄影网</a></li>
+<li><a href="http://bbs.tianya.cn/list-tianyaphoto-1.shtml">天涯社区摄影</a></li>
+<li><a href="http://www.neoimaging.cn/">光影魔术手</a></li>
+<li><a href="http://academy.fengniao.com/">摄影技巧攻略</a></li>
+<li><a href="http://www.cpanet.cn/">中国摄影家协会</a></li>
+<li><a href="http://pp.163.com/square">网易摄影</a></li>
+<li><a href="http://www.heiguang.com/">黑光影楼摄影</a></li>
+<li><a href="http://picasa.google.com/">picasa修图软件</a></li>
+<li><a href="http://www.leica.org.cn/">leica摄影杂志</a></li>
+<li><a href="http://photo.poco.cn/">poco摄影网</a></li>
+<li><a href="http://photo.189.cn/">爱冲印</a></li>
+<li><a href="http://www.dili360.com/">中国国家地理</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">摄影论坛</h2>
+            <ul>
+<li><a href="http://dcbbs.zol.com.cn/">数码摄影论坛</a></li>
+<li><a href="http://digital.pconline.com.cn/photo/">太平洋摄影部落</a></li>
+<li><a href="http://forums.nphoto.net/">新摄影论坛</a></li>
+<li><a href="http://forum.xitek.com/">无忌论坛</a></li>
+<li><a href="http://www.swcool.com/bbs/">形色主义论坛</a></li>
+<li><a href="http://bbs.fengniao.com/forum/">蜂鸟论坛</a></li>
+<li><a href="http://bbs.51sheying.com/">51摄影</a></li>
+<li><a href="http://tuchong.com/">图虫摄影社区</a></li>
+<li><a href="http://bbs.heiguang.com/">黑光人像摄影论坛</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">相册图库</h2>
+            <ul>
+<li><a href="http://photo.163.com/">网易相册</a></li>
+<li><a href="http://photo.qq.com/">QQ相册</a></li>
+<li><a href="http://www.flickr.com/">flickr相册</a></li>
+<li><a href="http://www.kachayu.com/">喀嚓鱼</a></li>
+<li><a href="http://www.bababian.com/">巴巴变相册</a></li>
+<li><a href="http://tu.poco.cn/">poco相册</a></li>
+<li><a href="http://www.quanjing.com/">全景图库</a></li>
+<li><a href="http://www.wodexiangce.cn/">我的相册网</a></li>
+<li><a href="http://xiangce.baidu.com/?from=hao123">百度相册</a></li>
+
+            </ul>
+        </div>
+        
+                <div class="site-nav">
+            <h2 class="site-header">摄影器材</h2>
+            <ul>
+<li><a href="http://www.canon.com.cn/">佳能</a></li>
+<li><a href="http://www.nikon.com.cn/">尼康</a></li>
+<li><a href="http://www.sonystyle.com.cn/products/cyber-shot/index.htm">索尼</a></li>
+<li><a href="http://www.rayi.cn/">锐意商城</a></li>
+<li><a href="http://www.zm7.cn/">卓美网</a></li>
+<li><a href="http://detail.zol.com.cn/digital_camera_index/subcate15_list_1.html">中关村在线报价</a></li>
+<li><a href="http://product.pconline.com.cn/dc/">太平洋网相机报价</a></li>
+<li><a href="http://dc.pconline.com.cn/jiqiao/">教你用相机</a></li>
+
+            </ul>
+        </div>
+
+        
+
+    </div>
+	
+</div>
+
+
+
+<script src="http://hao.uc.cn/__pc/site/js/jquery.js"></script>
+<script>
+    var config = {
+        uidName : 'taobao_navi_uid',    //cookie键值
+        ch: 'tbbrowser',
+        resCode : 'tb_index',
+        ipApi: 'http://www.gzjingy.com/img/php/ip.php',
+        statApi : 'http://www.gzjingy.com/pc_index_stat.php',  //接口地址
+        data : 'ext:as:tb_index-1518*1525-N000030:http://www.baidu.com' //参数设置
+    }
+</script>
+<script src="http://hao.uc.cn/__pc/neiye/js/neiyeApp.js"></script>
+</body>
+</html>

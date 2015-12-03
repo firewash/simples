@@ -1,0 +1,7 @@
+﻿CACHE MANIFEST
+CACHE:
+index.html
+index1.html
+NETWORK:
+*
+#timestamp:20141110235627_111

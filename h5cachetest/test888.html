@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="data-spm" content="1" data-spm-protocol="i"/>
+    <link rel="stylesheet" href="http://down.up1.uc.cn/wow/smboss/css/style.min.css?v=1.0.3">
+    <title>UC导航</title>
+    <base target="_blank">
+    <link rel="shortcut icon" type="image/png" href="http://down.up1.uc.cn/wow/smboss/img/favicon_uc123.png">
+</head>
+<body>
+<div id="div1"></div>
+<div class="header">
+    <div class="container" style="z-index: 200">
+        <div class="logo"><a href="index.html"><img id="logo_image" alt="网址大全"></a></div>
+        <div lmk="NavTqyb" lmv="天气预报" class="weather cls" id="js_weather_win" style="display:none;">
+            <ul class="weather_region">
+                <li>
+                    <span class="wae_mr js_wea_tx js_w_city_but" xtp="city"></span>
+                    <span class="js_wea_tx" xtp="county"></span>
+                    <span class="shuxindiqu js_w_selCity" lmk="NavTqyb-NavTqybGhcs" lmv="更换城市" urltrue="true" lmurl="#">[更换]</span>
+                </li>
+                <li class="js_wea_tx" xtp="date"></li>
+                <li>
+                    <p class="pm_t">PM2.5</p>
+
+                    <div class="weather_pm">
+                        <span class="pm_number js_wea_tx" xtp="pNumber"></span>
+                        <span class="js_wea_tx" xtp="pDesc"></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="uc_forecast">
+                <div class="qihou">
+                    <span class="w_iocn1" id="js_wea_icon"></span>
+                    <span class="js_wea_tx" xtp="wDesc"></span>
+                </div>
+                <div class="temperature">
+                    <h1 class="js_wea_tx" xtp="wNumber"></h1>
+                    <span class="js_wea_tx" xtp="windDesc"></span>
+                </div>
+            </div>
+            <ul class="futuretq" style="line-height:24px;"><!--临时去掉了五日天气，所以临时增加一个style，后续去掉-->
+                <li class="js_wea_tx" xtp="tomInfo"></li>
+                <li class="js_wea_tx" xtp="aTomInfo"></li>
+                <!-- <li class="js_wea_weilai"><a href="http://weather.news.sina.com.cn/" lmk="NavTqyb-NavTqybWl7daySun" lmv="五日天气" urltrue="true"  target="_blank">五日天气 &gt;&gt;</a></li> -->
+            </ul>
+        </div>
+
+        <div class="weather cls" id="js_weather_loading" style="">
+            <p class="load_p">天气正在加载中...</p>
+        </div>
+        <div class="weather" style="display:none" id="js_city_select_win">
+            <div class="triangle">
+                <div class="city_title">
+                    <span class="city_close js_wea_tx" xtp="close"></span>
+
+                    <p>城市选择</p>
+                </div>
+                <div class="city_change">
+                    <select class="js_wea_tx" xtp="first"></select>
+                    <select class="js_wea_tx" xtp="second"></select>
+                    <select class="js_wea_tx" xtp="third"></select>
+                    <input type="submit" value="更  换" class="js_wea_tx" xtp="submit">
+                </div>
+            </div>
+        </div>
+        <div class="email f12" lmk="topEmail" lmv="导航邮箱">
+            <form id='emailForm' action="http://passport.sohu.com/login.jsp" method="post" class="emailForm" target="_blank" id="atsohuForm">
+                <input type="text" name="loginid" data-at="@sohu.com" class="email-user  input2pxb email-input" placeholder="输入邮箱账号">
+                <input type="password" class="email-pwd input2pxb email-input" name="Password" placeholder="邮箱密码 " style="display: inline-block;">
+                <input type="submit" lmk="topEmail-topEmailButtonLogin" lmv="邮箱登陆" lmurl="" value="登录" class="email-submit input2pxb email-input" style="display: inline-block;">
+            </form>
+            <div class="emailList">
+                <div class="curMail" data-type="" data-index=""><span class="float-l">@sohu.com</span><i class="tri sprite"></i></div>
+                <ul class="emailList-ul dpn">
+                    <li id="atsohu" class="emailList-li">@sohu.com</li>
+                    <li id="at21cn" class="emailList-li">@21cn.com</li>
+                    <li id="at139" class="emailList-li">@139.com</li>
+                    <li id="at139" style="text-indent:0px">以下弹出登录</li>
+                    <li id="at163" class="emailList-li-link"><a class="emailList-a" href="http://email.163.com/" lmk="topEmail-topEmail163Login" lmv="163.com邮箱登陆" urltrue="true" lmurl="http://email.163.com/">@163.com</a></li>
+                    <li id="atyeah" class="emailList-li-link"><a class="emailList-a" href="http://www.yeah.net/" lmk="topEmail-topEmailyeahLogin" lmv="yeah.net邮箱登陆" urltrue="true" lmurl="http://www.yeah.net/">@yeah.net</a></li>
+                    <li id="at126" class="emailList-li-link"><a class="emailList-a" href="http://email.126.com/" lmk="topEmail-topEmail126Login" lmv="126.com邮箱登陆" urltrue="true" lmurl="http://email.126.com/">@126.com</a></li>
+                    <li id="atsina" class="emailList-li-link"><a class="emailList-a" href="http://mail.sina.com.cn/" lmk="topEmail-topEmailsinaLogin" lmv="sina.com邮箱登陆" urltrue="true" lmurl="http://mail.sina.com.cn/">@sina.com</a></li>
+                    <li id="atqq" class="emailList-li-link"><a class="emailList-a" href="http://mail.qq.com/" lmk="topEmail-topEmailqqLogin" lmv="qq.com邮箱登陆" urltrue="true" lmurl="http://mail.qq.com/">@qq.com</a></li>
+                    <li id="ataliyun" class="emailList-li-link"><a class="emailList-a" href="http://mail.aliyun.com/" lmk="topEmail-topEmailalyLogin" lmv="阿里云邮箱登陆" urltrue="true" lmurl="http://mail.aliyun.com/">阿里云</a></li>
+                    <li id="atgmail" class="emailList-li-link"><a class="emailList-a" href="http://mail.google.com/mail/" lmk="topEmail-topEmailgmailLogin" lmv="gmail.com邮箱登陆" urltrue="true" lmurl="http://mail.google.com/mail/">@gmail.com</a></li>
+                    <li id="at189" class="emailList-li-link"><a class="emailList-a" href="http://webmail8.189.cn/webmail/" lmk="topEmail-topEmailgmailLogin" lmv="189.cn邮箱登陆" urltrue="true" lmurl="http://webmail8.189.cn/webmail/">@189.cn</a></li>
+                    <li id="athotmail" class="emailList-li-link"><a class="emailList-a" href="http://www.hotmail.com/" lmk="topEmail-topEmailHotmailLogin" lmv="Hotmail邮箱登陆" urltrue="true" lmurl="http://www.hotmail.com/">Hotmail</a></li>
+                    <li id="atalipay" class="emailList-li-link"><a class="emailList-a" href="https://www.alipay.com/" lmk="topEmail-topEmailZfbLogin" lmv="支付宝登陆" urltrue="true" lmurl="https://www.alipay.com/">支付宝</a></li>
+                    <li id="atqqzone" class="emailList-li-link"><a class="emailList-a" href="http://user.qzone.qq.com/" lmk="topEmail-topEmailQqkjLogin" lmv="QQ空间箱登陆" urltrue="true" lmurl="http://user.qzone.qq.com/">QQ空间</a></li>
+                    <li id="atweixin" class="emailList-li-link"><a class="emailList-a" href="https://wx.qq.com/" lmk="topEmail-topEmailWxwybLogin" lmv="微信网页版登陆" urltrue="true" lmurl="https://wx.qq.com/">微信网页版</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+<div class="container">
+<ul class="hotwords">
+    <li>
+        <a href="http://click.union.vip.com/redirect.php?url=eyJkZXN0dXJsIjoiaHR0cDpcL1wvd3d3LnZpcC5jb20iLCJ1Y29kZSI6Ind4b3RqNml0Iiwic2NoZW1lY29kZSI6Ijh0cDBnOTluIiwiY2hhbiI6Im16In0=" lmk="topSearchRightSwtg-topSearchRightSwtg1" lmv="大牌之风,传递幸福时尚体验" urltrue="true">大牌之风,传递幸福时尚体验</a>
+    </li>
+</ul>
+<div class="search boxWG mb5">
+    <ul class="search-tabList">
+        <li data-val="news">新闻</li>
+        <li data-val="web" class="current">网页</li>
+        <li data-val="tieba" class="">贴吧</li>
+        <li data-val="zhidao">知道</li>
+        <li data-val="music">音乐</li>
+        <li data-val="pic">图片</li>
+        <li data-val="video">视频</li>
+        <li data-val="maps">地图</li>
+        <li data-val="wenku">文库</li>
+    </ul>
+    <div class="search-form">
+        <div id="search_logo" style='display:none'>
+            <div id="change_search_logo" class="search-baidu-logo"></div>
+            <span class="search_icon"></span></div>
+        <div id="search_box">
+            <ul id="search_logo_list">
+                <li data-name="sogou"><span class="search_logo_sogou"></span>搜狗</li>
+                <li data-name="google"><span class="search_logo_google"></span>谷歌</li>
+                <li data-name="bing"><span class="search_logo_bing"></span>必应</li>
+                <li data-name="taobao"><span class="search_logo_taobao"></span>淘宝</li>
+                <li data-name="youku"><span class="search_logo_youku"></span>优酷</li>
+                <li data-name="baidu"><span class="search_logo_baidu"></span>百度</li>
+            </ul>
+        </div>
+        <form id='searchForm' action="http://www.baidu.com/s" method="get" target="_blank">
+            <div class="search-input">
+                <input id='search_keyword' type="text" name="wd" class="input2pxb">
+            </div>
+            <input type="submit" id="search_submit" value="百度一下" searchkey="false" class="search-sbmit" style="display:none">
+
+            <div class="search-params">
+                <input type="hidden" name="ie" value="utf-8">
+                <input type="hidden" name="tn" value="98050039_pg">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="siteWrap">
+<div class="site-l">
+    <div class="l-con1 boxWG bb-none">
+    <ul>
+                    <li>
+                <i class="l-con1-ico sprite ico1"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="1-1" ck_name="电视剧" href="http://tv.youku.com">电视剧</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="1-2" ck_name="电影"  href="http://tv.sohu.com/movie/?pvid=e6625371390abd5e">电影</a>
+            </li>
+            <li>
+                <i class="l-con1-ico sprite ico-hotel"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="1-3" ck_name="酒店" href="http://u.ctrip.com/HotelCspSit/ectrip/index.html?allianceid=15138&sid=438999&ouid=001101app-0101A00&utm_medium=&utm_campaign=&utm_source=&isctrip=">酒店</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="1-4" ck_name="度假" href="http://vacations.ctrip.com/?allianceid=15138&sid=438999&ouid=001101app-0101C00&utm_medium=&utm_campaign=&utm_source=&isctrip=">度假</a>
+            </li>
+                    <li>
+                <i class="l-con1-ico sprite ico-hotel"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="2-1" ck_name="彩票" href="http://www.uc123.com/navi/caipiao.html">彩票</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="2-2" ck_name="双色球"  href="http://www.quecai.com/ssq/?from=pc_nav_ssq">双色球</a>
+            </li>
+            <li>
+                <i class="l-con1-ico sprite ico3"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="2-3" ck_name="新闻" href="http://www.uc123.com/navi/xinwen.html">新闻</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="2-4" ck_name="招聘" href="http://www.liepin.com/event/landingpage/sojob3.shtml?mscid=u_c_0003">招聘</a>
+            </li>
+                    <li>
+                <i class="l-con1-ico sprite ico3"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="3-1" ck_name="小游戏" href="http://www.4399.com">小游戏</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="3-2" ck_name="页游"  href="http://nbtg2.37.com/?uid=505183">页游</a>
+            </li>
+            <li>
+                <i class="l-con1-ico sprite ico4"></i>
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="3-3" ck_name="火车票" href="http://train.qunar.com/?ex_track=auto_52b820e1">火车票</a><span class="a-spe f12">|</span><a pg="index-index_ksrk-index" ck_rg="ksrk_zfl" ck_po="3-4" ck_name="机票" href="http://www.qunar.com/?ex_track=auto_52b81aaf">机票</a>
+            </li>
+            </ul>
+</div><div class="tbSale boxWG leftBox">
+        <h3 class="l-tb-title">天天特价</h3>
+    <div id="price_img" class="f12">
+                    <div class="tb-pic tb-2pic mr8">
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="1-1" ck_name="限时24小时包邮" href="http://osa.tmall.com/p/rd812133.htm?kid=12413_56356_166224_212098"><img src="http://pic2.biedoul.com/39_1.jpg" alt="限时24小时包邮"></a>
+                <p><a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="1-1" ck_name="限时24小时包邮" href="http://osa.tmall.com/p/rd812133.htm?kid=12413_56356_166224_212098">限时24小时包邮</a></p>
+            </div>
+                    <div class="tb-pic tb-2pic ">
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="1-2" ck_name="品牌团震撼登场啦" href="http://handuyishenx.tmall.com/shop/view_shop.htm?user_number_id=2087037191&ali_trackid=2:mm_48193485_6632713_22696259:1401333456_3k3_1295689378&v=1"><img src="http://pic2.biedoul.com/36_1.jpg" alt="品牌团震撼登场啦"></a>
+                <p><a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="1-2" ck_name="品牌团震撼登场啦" href="http://handuyishenx.tmall.com/shop/view_shop.htm?user_number_id=2087037191&ali_trackid=2:mm_48193485_6632713_22696259:1401333456_3k3_1295689378&v=1">品牌团震撼登场啦</a></p>
+            </div>
+            </div>
+    <div class="tbHotSale f12">
+        <ul id="price_txt">
+                            <li class="tbHotSale-li"><a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="2-1" ck_name="靓丽内衣" href="http://www.lianglihui.cn">靓丽内衣</a></li>
+                            <li class="tbHotSale-li"><a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="2-3" ck_name="美妆特惠" href="http://p.yiqifa.com/c?s=140f1453&w=650694&c=4018&i=2882&l=0&e=&t=http://www.vip.com/show-185578.html?f=ad244###">美妆特惠</a></li>
+                            <li class="tbHotSale-li"><a pg="index-index_ksrk-index" ck_rg="ksrk_tttj" ck_po="2-4" ck_name="性感泳衣" href="http://www.lianglihui.cn/index/nvzhuang/">性感泳衣</a></li>
+                    </ul>
+    </div>
+</div><div class="hotGame boxWG leftBox">
+    <h3 class="l-tb-title" lmk="leftLm-leftLmJxyx" lmv="精选游戏">精选游戏</h3>
+        <ul class="hotGame-pic cls">
+                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="1-1" ck_name="破千军千古赤月" href="http://t.xydhl.com/?eid=0d1bzYlSj%2FFJGotIagGnM64957e%2BBCqFqO338wXNgKlO"><img src="http://www.uc123.com/img/xydhl1.jpg"></a></li>
+                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="1-2" ck_name="最爽pk页游" href="http://t.xydhl.com/?eid=e47fsrSLI6RZGnYk0ImN%2BsYL13YpuRCg2mIdj7cgMhIm"><img src="http://www.uc123.com/img/xydhl2.jpg"></a></li>
+            </ul>
+    <div class="tbHotSale f12">
+        <ul class="hotGame-text cls">
+                                <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="2-1" ck_name="成人3D魔幻游戏" href="http://t.xydhl.com/?eid=4d36112MqQigx05Q%2BD6Mhwe3tx7ZajOy5Y0JT16EMVm1">成人3D魔幻游戏</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="2-2" ck_name="刷甲虫招招高潮" href="http://t.xydhl.com/?eid=2543vDlnHjPpjm%2BpFCXvRpE%2BC5JwUZ0f8j%2FZ3%2BDvicTW">刷甲虫招招高潮</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="3-1" ck_name="热血金焰斩龙刃" href="http://t.xydhl.com/?eid=e2c0KGtm05FiGNdfSrnwu0WF3HtlYRaSVMWDk30JkUNj">热血金焰斩龙刃</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="3-2" ck_name="全屏秒杀爆霸天头盔" href="http://t.xydhl.com/?eid=3f24mPkYwL%2FdwM3SOylOmNLtK9sX%2Fl0IK%2BNE0RPowlrt">全屏秒杀爆霸天头盔</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="4-1" ck_name="双休VIP房间泡妹子" href="http://t.xydhl.com/?eid=fffehFmhnJVclX81sR8G6HAJNn6GzWIbx31XDPDW1qEE">双休VIP房间泡妹子</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="4-2" ck_name="暗黑世界闯关色欲" href="http://t.xydhl.com/?eid=3746K4RqUuNL8LPV1LfC7%2Fx3goFkyiD9%2FQUpr1MhWw15">暗黑世界闯关色欲</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="5-1" ck_name="免费领取嗜血魔兽" href="http://t.xydhl.com/?eid=3693gZWoGRR2Jd9iP%2B4BWZQmRUZOoQn6Zz1pt0pXJCPe">免费领取嗜血魔兽</a></li>
+                                    <li><a pg="index-index_ksrk-index" ck_rg="ksrk_jxyx" ck_po="5-2" ck_name="99级开始体验刺激" href="http://t.xydhl.com/?eid=8fa5VakIjxur%2FzR9m6KpZvYGzeT0yH%2BMr7738huYrodS">99级开始体验刺激</a></li>
+                        </ul>
+    </div>
+</div>    <div class="leftBox boxWG cultureCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico7"></i>文化娱乐        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="1-2" ck_name="美女" href="http://www.uc123.com/navi/meitu.html">美女</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="1-3" ck_name="两性" href="http://www.uc123.com/navi/liangxing.html">两性</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="1-4" ck_name="图片" href="http://www.uc123.com/navi/meitu.html">图片</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="2-1" ck_name="小说" href="http://www.uc123.com/navi/xiaoshuo.html">小说</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="2-2" ck_name="军事" href="http://www.uc123.com/navi/junshi.html">军事</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="2-3" ck_name="搞笑" href="http://www.uc123.com/navi/gaoxiao.html">搞笑</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="2-4" ck_name="页游" href="http://www.uc123.com/navi/youxi.html">页游</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="3-1" ck_name="动漫" href="http://www.uc123.com/navi/dongman.html">动漫</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="3-2" ck_name="综艺" href="http://tv.sohu.com/show/?pvid=e6625371390abd5e">综艺</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="3-3" ck_name="健康" href="http://www.uc123.com/navi/jiankang.html">健康</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="whyl" ck_po="3-4" ck_name="儿童" href="http://www.uc123.com/navi/muying.html">儿童</a></li>
+                            </ul>
+            </div>
+    <div class="leftBox boxWG sportsCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico8"></i>户外运动        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="1-1" ck_name="NBA" href="http://china.nba.com">NBA</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="1-2" ck_name="体育" href="http://www.uc123.com/navi/tiyu.html">体育</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="1-3" ck_name="足球" href="http://sports.sina.com.cn/global/">足球</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="1-4" ck_name="WWE" href="http://www.shuaijiao.com">WWE</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="2-1" ck_name="赛事" href="http://match.chinago.cn">赛事</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="2-2" ck_name="直播" href="http://www.zhibo8.cc">直播</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="2-3" ck_name="球鞋" href="http://bbs.hupu.com/gear-type1">球鞋</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="hwyd" ck_po="2-4" ck_name="论坛" href="http://bbs.hupu.com">论坛</a></li>
+                            </ul>
+            </div>
+    <div class="leftBox boxWG phoneCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico9"></i>手机数码        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="1-1" ck_name="手机" href="http://mobile.zol.com.cn">手机</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="1-2" ck_name="相机" href="http://detail.zol.com.cn/digital_camera_index/subcate15_list_1.html">相机</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="1-3" ck_name="电玩" href="http://www.tgbus.com">电玩</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="1-4" ck_name="笔记本" href="http://detail.zol.com.cn/notebook_index/subcate16_list_1.html">笔记本</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="2-1" ck_name="平板" href="http://detail.zol.com.cn/tablepc/">平板</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="2-2" ck_name="台式机" href="http://detail.zol.com.cn/desktop_pc/">台式机</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="sjsm" ck_po="3-1" ck_name="小米" href="http://hd.mi.com/webfile/zt/hd/2014052001/index.html">小米</a></li>
+                            </ul>
+            </div>
+    <div class="leftBox boxWG carCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico10"></i>财经汽车        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="1-1" ck_name="股票" href="http://quote.eastmoney.com/zs000001.html">股票</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="1-2" ck_name="基金" href="http://fund.eastmoney.com">基金</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="1-3" ck_name="平安车险" href="http://www.4008000000.com/cpchexian/bd/bd.shtml?WT.mc_id=ec03-ucpc-001">平安车险</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="1-4" ck_name="房产" href="http://www.soufun.com">房产</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="2-1" ck_name="装修" href="http://zx.meilele.com">装修</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="2-2" ck_name="配件" href="http://www.foioo.com">配件</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="2-3" ck_name="摩托" href="http://motorcycle.sh.cn">摩托</a></li>
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="2-4" ck_name="自行车" href="http://www.biketo.com">自行车</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-mzqunaer" ck_rg="" ck_po="3-1" ck_name="热门车" href="http://beijing.bitauto.com/?WT.mc_id=tbkz&referrer=http://www.uc123.com/?rfsh=1">热门车</a></li>
+                            </ul>
+            </div>
+    <div class="leftBox boxWG localCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico11"></i>本地生活        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="1-1" ck_name="查IP" href="http://www.ip138.com">查IP</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="1-2" ck_name="快递" href="http://www.kuaidi100.com">快递</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="1-3" ck_name="商城" href="http://www.uc123.com/navi/gouwu.html">商城</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="1-4" ck_name="团购" href="http://www.uc123.com/navi/tuangou.html">团购</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="2-1" ck_name="租房" href="http://bj.58.com/chuzu/?utm_source=d_123.uc&utm_campaign=123.uc-bendizufang&spm=123.uc-bendizufang">租房</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="2-2" ck_name="维修" href="http://www.easiu.com">维修</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="2-3" ck_name="保洁" href="http://bj.58.com/baojie/?utm_source=d_123.uc&utm_campaign=123.uc-bendibaojie&spm=123.uc-bendibaojie">保洁</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="2-4" ck_name="装修" href="http://jiaju.sina.com.cn">装修</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="3-1" ck_name="潮店" href="http://ai.taobao.com">潮店</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="3-2" ck_name="地图" href="http://map.baidu.com">地图</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="3-3" ck_name="地方" href="http://bj.58.com/?utm_source=d_123.uc&utm_campaign=123.uc-bendishenghuo&spm=123.uc-bendishenghuo">地方</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="bdsh" ck_po="3-4" ck_name="机票" href="http://www.qunar.com/?ex_track=auto_52b81aaf">机票</a></li>
+                            </ul>
+            </div>
+    <div class="leftBox boxWG virtualityCat">
+        <h3 class="l-cat-title f12"><i class="l-cat-ico sprite ico12"></i>虚拟服务        </h3>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="1-1" ck_name="页游" href="http://www.yeyou.com">页游</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="1-2" ck_name="网游" href="http://www.duowan.com">网游</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="1-3" ck_name="小游戏" href="http://www.4399.com">小游戏</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="1-4" ck_name="游戏攻略" href="http://gonglue.cngba.com">游戏攻略</a></li>
+                            </ul>
+                    <ul class="cls">
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="2-1" ck_name="充话费" href="https://app.alipay.com/tx/mobile.htm">充话费</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="2-2" ck_name="电影票" href="http://bj.meituan.com/?utm_campaign=uc123.com&utm_medium=nav&utm_source=uc123.com&utm_content=yingshi">电影票</a></li>
+                                    <li class="l-cat-li"><a pg="-index_ejfl" ck_rg="xnfw" ck_po="2-3" ck_name="手机游戏" href="http://www.9game.cn/?ch=uc_54&text=pcbrowser_xnfw">手机游戏</a></li>
+                            </ul>
+            </div>
+<div class="tbFeat boxWG leftBox">
+    <h3 class="l-tb-title">手机游戏推荐</h3>
+    <div class="f12">
+                    <div class="tb-pic tb-3pic-b mr2">
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_sjyx" ck_po="1-1" ck_name="刀塔传奇" href="http://dtcq.9game.cn/?ch=uc_56&text=pcbrowser_sjyxtj_dtcq">
+                    <img src="http://www.uc123.com/img/pcbrowser_tbjx_dtcq.jpg" alt="刀塔传奇">
+                    <p>刀塔传奇</p>
+                </a>
+            </div>
+                    <div class="tb-pic tb-3pic-s mb2">
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_sjyx" ck_po="1-2" ck_name="时空猎人" href="http://sklr.9game.cn/?ch=uc_56&text=pcbrowser_sjyxtj_sklr">
+                    <img src="http://www.uc123.com/img/pcbrowser_tbjx_sklr.jpg" alt="时空猎人">
+                    <p>时空猎人</p>
+                </a>
+            </div>
+                    <div class="tb-pic tb-3pic-s">
+                <a pg="index-index_ksrk-index" ck_rg="ksrk_sjyx" ck_po="1-3" ck_name="暗黑战神" href="http://ahzs.9game.cn/?ch=uc_56&text=pcbrowser_sjyxtj_ahzs">
+                    <img src="http://www.uc123.com/img/pcbrowser_tbjx_ahzs.jpg" alt="暗黑战神">
+                    <p>暗黑战神</p>
+                </a>
+            </div>
+            </div>
+</div></div>
+<div class="site-r">
+<!-- 名站 -->
+<div class="famousSites boxWG mb5">
+    <div class="fanmodw" id="js_famous_show">
+        <div class="famous_wap">
+            <ul class="famous-gruoup cls js_show_con" lmk="centerMz" lmv="名站"></ul>
+            <div class="famous_add js_show_toHandle"></div>
+        </div>
+    </div>
+    <div class="fanmodw" id="js_famous_handle" style="display:none">
+        <div class="famous_compile">
+            <div class="famous_ulwap">
+                <ul class="famous_ul cls js_handle_con"></ul>
+                <div class="famous_handtj">
+                    <label>手动添加</label>
+                    <input type="text" placeholder="输入显示标题" class="uc_addinpt title_width js_handle_text" value="">
+                    <input type="url" placeholder="输入网址" class="uc_addinpt import_width js_handle_text" value="">
+                    <input type="submit" value="提 交" class="definition_btn js_handle_submit">
+                </div>
+            </div>
+            <div class="famous_cfirm js_handle_toShow" lmk="centerMz-CenterMzQrxg"
+                 lmv="自定义名站确认"
+                 urltrue="true"
+                 lmurl="#">
+            </div>
+        </div>
+        <div id="js_famous_alert" style="display:none">
+            <div class="uc_shadow">
+                <p>是将“<span class="js_famName">百度</span>”从首页导航中删除么</p>
+
+                <div class="uc_shabtn">
+                    <input type="submit" class="m_right js_sure" value="确定">
+                    <input type="submit" class="m_lerft" onclick="$('#js_famous_alert').hide()" value="取消">
+                </div>
+            </div>
+            <div class="uc_mask"></div>
+        </div>
+        <div id="js_famous_maxAlert" style="display:none">
+            <div class="uc_shadow">
+                <p>没位子了,删除一个吧</p>
+
+                <div class="uc_shabtn" style="width:55px;">
+                    <input type="submit" onclick="$('#js_famous_maxAlert').hide()" value="确定">
+                </div>
+            </div>
+            <div class="uc_mask"></div>
+        </div>
+    </div>
+</div>
+<div class="videoContent boxWG bb-none" id="lion_tab_win">
+<div class="navitab lion_tab_left">
+    <ul class="navitab-title">
+                <li><a pg="index-index_sp" ck_rg="" ck_po="1-1" ck_name="电视剧"  wintype="dsj" href="http://tv.letv.com/?ref=UC123">电视剧</a></li>
+                <li><a pg="index-index_sp" ck_rg="" ck_po="1-2" ck_name="电影"  wintype="dy" href="http://movie.letv.com/?ref=UC123">电影</a></li>
+                <li><a pg="index-index_sp" ck_rg="" ck_po="1-3" ck_name="大陆剧"  wintype="dlj" href="http://tv.youku.com/cn/index2">大陆剧</a></li>
+                <li><a pg="index-index_sp" ck_rg="" ck_po="1-4" ck_name="韩剧"  wintype="hj" href="http://www.letv.com/tv/95658.html?ref=UC">韩剧</a></li>
+            </ul>
+    <div class="navitab-item">
+        <script type="text/javascript">
+            var movieConfig = {"dsj":["left",{"id":"115","code":"cknys","name":"\u4ea7\u79d1\u7537\u533b\u751f","url":"http:\/\/tv.sohu.com\/20140508\/n399271607.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dsj","position":"1-2","picture_url":"http:\/\/www.uc123.com\/img\/index_page\/dsj_1.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dsj","ck_po":"1-2","ck_name":"\u4ea7\u79d1\u7537\u533b\u751f"}},{"id":"116","code":"rgwan","name":"\u5982\u679c\u6211\u7231\u4f60","url":"http:\/\/tv.sohu.com\/20140504\/n399126473.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dsj","position":"1-3","picture_url":"http:\/\/www.uc123.com\/img\/index_page\/dsj_2.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dsj","ck_po":"1-3","ck_name":"\u5982\u679c\u6211\u7231\u4f60"}},{"id":"118","code":"jiayouairen","name":"\u52a0\u6cb9\u7231\u4eba","url":"http:\/\/tv.sohu.com\/20140518\/n399715578.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dsj","position":"1-4","picture_url":"http:\/\/www.uc123.com\/img\/index_page\/dsj_3.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dsj","ck_po":"1-4","ck_name":"\u52a0\u6cb9\u7231\u4eba"}}],"dy":["left",{"id":"121","code":"jeyx","name":"\u9965\u997f\u6e38\u620f2","url":"http:\/\/tv.sohu.com\/20140428\/n398940672.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dy","position":"1-2","picture_url":"dy_2.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dy","ck_po":"1-2","ck_name":"\u9965\u997f\u6e38\u620f2"}},{"id":"122","code":"dhtx","name":"\u5927\u8bdd\u5929\u4ed9","url":"http:\/\/tv.sohu.com\/20140410\/n398053068.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dy","position":"1-3","picture_url":"dy_3.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dy","ck_po":"1-3","ck_name":"\u5927\u8bdd\u5929\u4ed9"}},{"id":"123","code":"alps","name":"\u5965\u6797\u5339\u65af\u7684\u9677\u843d","url":"http:\/\/tv.sohu.com\/20140410\/n398041461.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dy","position":"1-4","picture_url":"dy_1.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dy","ck_po":"1-4","ck_name":"\u5965\u6797\u5339\u65af\u7684\u9677\u843d"}}],"dlj":["left",{"id":"126","code":"wangm","name":"\u6211\u7231\u7537\u95fa\u871c","url":"http:\/\/tv.sohu.com\/20140416\/n398357492.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dlj","position":"1-2","picture_url":"","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dlj","ck_po":"1-2","ck_name":"\u6211\u7231\u7537\u95fa\u871c"}},{"id":"127","code":"sjzg2","name":"\u820c\u5c16\u4e2d\u56fd2","url":"http:\/\/tv.sohu.com\/20140418\/n398481382.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dlj","position":"1-3","picture_url":"dlj_2.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dlj","ck_po":"1-3","ck_name":"\u820c\u5c16\u4e2d\u56fd2"}},{"id":"128","code":"jyly","name":"\u91d1\u7389\u826f\u7f18","url":"http:\/\/tv.sohu.com\/20140421\/n398595823.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_dlj","position":"1-4","picture_url":"dlj_3.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_dlj","ck_po":"1-4","ck_name":"\u91d1\u7389\u826f\u7f18"}}],"hj":["left",{"id":"131","code":"youna","name":"\u5ba5\u5a1c\u7684\u8857","url":"http:\/\/tv.sohu.com\/20140520\/n399768712.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_hj","position":"1-2","picture_url":"hj_1.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_hj","ck_po":"1-2","ck_name":"\u5ba5\u5a1c\u7684\u8857"}},{"id":"132","code":"huohua","name":"\u5230\u706b\u82b1\u4e2d\u53bb","url":"http:\/\/tv.sohu.com\/20140426\/n398842905.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_hj","position":"1-3","picture_url":"hj_2.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_hj","ck_po":"1-3","ck_name":"\u5230\u706b\u82b1\u4e2d\u53bb"}},{"id":"133","code":"jicheng","name":"\u7ee7\u627f\u8005\u4eec","url":"http:\/\/tv.sohu.com\/20131010\/n387840939.shtml\/?pvid=e6625371390abd5e","parent":"index-index_sp-index_sp_hj","position":"1-4","picture_url":"hj_3.jpg","ck":{"pg":"index-index_sp-index","ck_rg":"sp_hj","ck_po":"1-4","ck_name":"\u7ee7\u627f\u8005\u4eec"}}]};
+        </script>
+    </div>
+</div>
+<div class="navitab lion_tab_right">
+    <ul class="navitab-title">
+                    <li><a wintype="jp" href="">机票</a></li>
+                    <li><a wintype="jd" href="">酒店</a></li>
+                    <li><a wintype="dj" href="">度假</a></li>
+                    <li><a wintype="ly" href="">旅游团购</a></li>
+            </ul>
+    <div class="navitab-item">
+        <script type="text/javascript">
+            var travelConfig = {"jp":["right"],"jd":["right",{"id":"143","code":"jd1z","name":"\u9152\u5e971\u6298","url":"http:\/\/hotel.qunar.com\/?ex_track=auto_533d34ee","parent":"index-index_cx-zpjiudian","position":"1-2","picture_url":"jd_1.jpg","ck":{"pg":"index-index_cx-zpjiudian","ck_rg":"","ck_po":"1-2","ck_name":"\u9152\u5e971\u6298"}},{"id":"144","code":"kezhan","name":"\u5ba2\u6808\u6c11\u5bbf","url":"http:\/\/bnb.qunar.com\/?ex_track=auto_533d34ee","parent":"index-index_cx-zpjiudian","position":"1-3","picture_url":"jd_2.jpg","ck":{"pg":"index-index_cx-zpjiudian","ck_rg":"","ck_po":"1-3","ck_name":"\u5ba2\u6808\u6c11\u5bbf"}},{"id":"145","code":"gaoduan","name":"\u9ad8\u7aef\u9152\u5e97","url":"http:\/\/lh.qunar.com\/?ex_track=auto_533d34ee","parent":"index-index_cx-zpjiudian","position":"1-4","picture_url":"jd_3.jpg","ck":{"pg":"index-index_cx-zpjiudian","ck_rg":"","ck_po":"1-4","ck_name":"\u9ad8\u7aef\u9152\u5e97"}}],"dj":["right"],"ly":["right"]};
+        </script>
+    </div>
+</div></div>
+<div class="quicklink" lmk="CenterZfMzxzfgg" lmv="名站下中缝广告">
+    <br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-1" ck_name="百度糯米" href="http://www.nuomi.com/?utm_source=uc_nav&utm_medium=mz&utm_campaign=2_2&cid=001507">百度糯米</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-10" ck_name="9块9包邮" href="http://www.gouwubang.com/?w=Uczhongjianlan&e=&spm=1.1">9块9包邮</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-2" ck_name="先领券再购物" href="http://www.mogujie.com/webapp/cpsevent505">先领券再购物</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-3" ck_name="面膜年中大促" href="http://mfsj1908.tmall.com/?kid=10015_46162_134954_174284">面膜年中大促</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-4" ck_name="超值特价游" href="http://www.ly.com/#refid=31349946">超值特价游</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-5" ck_name="全场1折包邮" href="http://www.1zw.com">全场1折包邮</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-6" ck_name="天天网" href="http://www.tiantian.com/?utm_source=uc123_cps_zl_314">天天网</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-7" ck_name="途牛旅游" href="http://www.tuniu.com/?p=14868&cmpid=mkt_03035401&utm_campaign=Daohang&utm_source=123.uc.cn&utm_medium=referra">途牛旅游</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-8" ck_name="名酒清仓" href="http://a1722.oadz.com/link/C/1722/9992/.S85a.YSL6J3WyrBsVbIUzaycgc_/p007/0/http://www.jiuxian.com/cpspublic/cps.htm?src=nav&code=uc_2014_00004&url=http://clear.jiuxian.com/">名酒清仓</a>
+<br />
+<b>Warning</b>:  strpos() [<a href='function.strpos'>function.strpos</a>]: Offset not contained in string in <b>/home/nemo/uae_agent/apps/pcadmindev/uc123/parseCK.php</b> on line <b>4</b><br />
+    <a pg="" ck_rg="" ck_po="1-9" ck_name="今日聚超值" href="http://best.pconline.com.cn/#ad=7276">今日聚超值</a>
+</div>
+<div class="catelogyBox-big boxWG bb-none">
+    <h3 class="tagtitle sprite tag-video">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-1" ck_name="影视" href="http://www.uc123.com/navi/shipin.html">影视</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-2" ck_name="优酷" href="http://www.youku.com">优酷</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-3" ck_name="土豆" href="http://www.tudou.com">土豆</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-4" ck_name="爱奇艺" href="http://www.iqiyi.com">爱奇艺</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-5" ck_name="乐视高清" href="http://www.letv.com">乐视高清</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-6" ck_name="腾讯视频" href="http://v.qq.com">腾讯视频</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-7" ck_name="搜狐视频" href="http://tv.sohu.com/?pvid=e6625371390abd5e">搜狐视频</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="1-8" ck_name="迅雷看看" href="http://www.kankan.com">迅雷看看</a></span>
+                        </li>
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-2" ck_name="电影" href="http://tv.sohu.com/movie/">电影</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-3" ck_name="动漫" href="http://www.uc123.com/navi/dongman.html">动漫</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-4" ck_name="综艺" href="http://tv.sohu.com/show/?pvid=e6625371390abd5e">综艺</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-5" ck_name="电视直播" href="http://tv.cntv.cn/live/">电视直播</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-6" ck_name="美团电影票" href="http://www.meituan.com/dianying/zuixindianying/?utm_campaign=uc123.com&utm_medium=nav&utm_source=uc123.com&utm_content=yingshi">美团电影票</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_ys" ck_po="2-7" ck_name="舌尖上的中国2" href="http://shejian2.cntv.cn">舌尖上的中国2</a></span>
+                        </li>
+            </ul>
+</div>
+<div class="catelogyBox-big boxWG bb-none">
+    <h3 class="tagtitle sprite tag-game">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-2" ck_name="游戏" href="http://www.uc123.com/navi/youxi.html">游戏</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-2" ck_name="烈焰" href="http://t.xydhl.com/?eid=c213DnLptSa1IIgmKaCSRpjB9%2BdtuPxURv2vzc1lnLb8">烈焰</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-3" ck_name="武易" href="http://www.mygame66.com/211670092.html">武易</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-4" ck_name="黑暗之光" href="http://www.mygame66.com/211670092.html">黑暗之光</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-5" ck_name="2144小游戏" href="http://www.2144.cn">2144小游戏</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-6" ck_name="17173" href="http://www.17173.com">17173</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-7" ck_name="5173游戏交易" href="http://www.5173.com">5173游戏交易</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_yx" ck_po="1-8" ck_name="游民星空" href="http://www.gamersky.com">游民星空</a></span>
+                        </li>
+            </ul>
+</div>
+<div class="catelogyBox-big boxWG bb-none">
+    <h3 class="tagtitle sprite tag-war">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-3" ck_name="军事" href="http://www.uc123.com/navi/junshi.html">军事</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_js" ck_po="1-2" ck_name="中华军事网" href="http://military.china.com/zh_cn/">中华军事网</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_js" ck_po="1-3" ck_name="凤凰军事" href="http://news.ifeng.com/mil/">凤凰军事</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_js" ck_po="1-4" ck_name="环球新军事" href="http://www.xinjunshi.com">环球新军事</a></span>
+                        </li>
+            </ul>
+</div>
+<div class="catelogyBox-big boxWG bb-none">
+    <h3 class="tagtitle sprite tag-news">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-4" ck_name="新闻" href="http://www.uc123.com/navi/xinwen.html">新闻</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xw" ck_po="1-2" ck_name="腾讯新闻" href="http://news.qq.com">腾讯新闻</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xw" ck_po="1-3" ck_name="新浪新闻" href="http://news.sina.com.cn">新浪新闻</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xw" ck_po="1-4" ck_name="凤凰资讯" href="http://news.ifeng.com">凤凰资讯</a></span>
+                        </li>
+            </ul>
+</div>
+<div class="catelogyBox-big boxWG bb-none">
+    <h3 class="tagtitle sprite tag-novel">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-5" ck_name="小说" href="http://www.uc123.com/navi/xiaoshuo.html">小说</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xs" ck_po="1-2" ck_name="起点中文网" href="http://www.qidian.com/Default.aspx">起点中文网</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xs" ck_po="1-3" ck_name="17K小说网" href="http://www.17k.com">17K小说网</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_xs" ck_po="1-4" ck_name="红袖添香" href="http://www.hongxiu.com">红袖添香</a></span>
+                        </li>
+            </ul>
+</div>
+<div class="catelogyBox-big boxWG mb5">
+    <h3 class="tagtitle sprite tag-shopping">
+        <a pg="index-index_kz" ck_rg="" ck_po="1-6" ck_name="购物" href="http://www.uc123.com/navi/gouwu.html">购物</a>
+    </h3>
+    <ul class="tagcontent">
+                    <li class="linkList">
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-2" ck_name="爱淘宝" href="http://ai.taobao.com/?pid=mm_50814843_6614255_22480111">爱淘宝</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-3" ck_name="苏宁易购" href="http://www.suning.com/?utm_source=union&utm_medium=C&utm_campaign=138927&utm_content=0">苏宁易购</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-4" ck_name="唯品会" href="http://www.vip.com">唯品会</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-5" ck_name="京东商城" href="http://p.yiqifa.com/c?s=95157aee&w=700659&c=254&i=160&l=0&e=&t=http://www.jd.com/">京东商城</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-6" ck_name="亚马逊" href="http://www.amazon.cn/?_encoding=UTF8&camp=536&creative=3200&linkCode=ur2&tag=123uc04-23">亚马逊</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-7" ck_name="1号店" href="http://hot.yhd.com/1/?cpcFlag=0&tracker_u=109673645">1号店</a></span>
+                            <span><a pg="index-index_kz-index" ck_rg="kz_gw" ck_po="1-8" ck_name="国美在线" href="http://www.gome.com.cn/?cmpid=cps_3041_3084">国美在线</a></span>
+                        </li>
+                    <li class="linkList">
+                        </li>
+            </ul>
+</div>
+    <div class="boxWG bb-none maleChannel">
+                    <h2 class="channnel-head">
+                <i class="sprite channel-male"></i>
+                <span class="cor-blue">男性频道</span>
+            </h2>
+                <ul class="channel-content">
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_man-index" ck_rg="men_ty" ck_po="1-1" ck_name="体育" href="http://www.uc123.com/navi/tiyu.html">体育 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_man-index" ck_rg="men_ty" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/tiyu.html">更多</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="men_ty" ck_po="1-2" ck_name="新浪体育" href="http://sports.sina.com.cn">新浪体育</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="men_ty" ck_po="1-3" ck_name="NBA" href="http://china.nba.com">NBA</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_man-index" ck_rg="man_qc" ck_po="1-1" ck_name="汽车" href="http://www.uc123.com/navi/qiche.html">汽车 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_man-index" ck_rg="man_qc" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/qiche.html">更多</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="man_qc" ck_po="1-2" ck_name="易车网" href="http://beijing.bitauto.com/?WT.mc_id=tbkz&referrer=http://www.uc123.com/?rfsh=1">易车网</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="man_qc" ck_po="1-3" ck_name="汽车之家" href="http://www.autohome.com.cn">汽车之家</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="man_qc" ck_po="1-4" ck_name="新浪汽车" href="http://auto.sina.com.cn">新浪汽车</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_man-index" ck_rg="man_cj" ck_po="1-1" ck_name="财经" href="http://www.uc123.com/navi/caijing.html">财经 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_man-index" ck_rg="man_cj" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/caijing.html">更多</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="man_cj" ck_po="1-2" ck_name="新浪财经" href="http://finance.sina.com.cn">新浪财经</a></span>
+                                                    <span><a pg="index-index_man-index" ck_rg="man_cj" ck_po="1-3" ck_name="东方财富" href="http://www.eastmoney.com">东方财富</a></span>
+                                        </li>
+                    </ul>
+    </div>
+    <div class="boxWG bb-none femaleChannel bt-none">
+                    <h2 class="channnel-head">
+                <i class="sprite channel-female"></i>
+                <span class="cor-blue">女性频道</span>
+            </h2>
+                <ul class="channel-content">
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-1" ck_name="商城" href="http://www.uc123.com/navi/gouwu.html">商城 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/gouwu.html">更多</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-2" ck_name="苏宁易购" href="http://www.suning.com/?utm_source=union&utm_medium=C&utm_campaign=138927&utm_content=0">苏宁易购</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-3" ck_name="顺丰优选" href="http://www.sfbest.com/?etc_n=padnet&etc_s=yqf&union_source=CPS&union_medium=yqf&union_campaign=cps&utm_source=cps">顺丰优选</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-4" ck_name="聚美优品" href="http://bj.jumei.com/?from=union_203&referer=union__1%5E203%5E0%5Euc&utm_medium=cps&utm_medium=union&utm_source=union_203&utm_source=union_203">聚美优品</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-5" ck_name="1号店" href="http://un.yhd.com/?tracker_u=109673645">1号店</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-6" ck_name="梦芭莎" href="http://www.moonbasa.com">梦芭莎</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-7" ck_name="酒仙网购酒" href="http://www.jiuxian.com">酒仙网购酒</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-8" ck_name="优生活购时尚" href="http://www.yougou.com/topics/1400062824152.html?utm_source=AD_ePHXqDnLw">优生活购时尚</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shc" ck_po="1-9" ck_name="当当网" href="http://www.dangdang.com/?_ddclickunion=P-321685|ad_type=10|sys_id=1#dd_refer=http%3A%2F%2Fwww.uc123.com%2F%3Frfsh%3D1">当当网</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_woman-index" ck_rg="woman_lx" ck_po="1-1" ck_name="旅行" href="http://www.uc123.com/navi/lvyou.html">旅行 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_woman-index" ck_rg="woman_lx" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/lvyou.html">更多</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_lx" ck_po="1-2" ck_name="悠哉旅游网" href="http://www.uzai.com/?utm_source=123.uc.cn&utm_medium=referral&utm_campaign=UC">悠哉旅游网</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_lx" ck_po="1-3" ck_name="去哪儿网" href="http://www.qunar.com/?ex_track=auto_52b81ab1">去哪儿网</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_lx" ck_po="1-4" ck_name="携程网" href="http://www.ctrip.com/?allianceid=15138&sid=436188&ouid=000401app-&utm_medium=&utm_campaign=&utm_source=&isctrip=">携程网</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_woman-index" ck_rg="woman_tg" ck_po="1-1" ck_name="团购" href="http://www.uc123.com/navi/tuangou.html">团购 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_woman-index" ck_rg="woman_tg" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/tuangou.html">更多</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_tg" ck_po="1-2" ck_name="美团网团购" href="http://bj.meituan.com/?utm_campaign=uc123.com&utm_medium=nav&utm_source=uc123.com&utm_content=type">美团网团购</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_tg" ck_po="1-3" ck_name="聚划算" href="http://ju.taobao.com/?ali_trackid=2:mm_50814843_6614255_22470777:1401362389_3k4_1920935037">聚划算</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_tg" ck_po="1-4" ck_name="百度糯米" href="http://www.nuomi.com/?utm_source=uc_nav&utm_medium=kz&utm_campaign=1_1&cid=001508">百度糯米</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_woman-index" ck_rg="woman_shh" ck_po="1-1" ck_name="生活" href="http://www.uc123.com/navi/shenghuo.html">生活 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_woman-index" ck_rg="woman_shh" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/shenghuo.html">更多</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shh" ck_po="1-2" ck_name="58同城" href="http://bj.58.com/?utm_source=d_123.uc&utm_campaign=123.uc-102&spm=123.uc-shenghuo-1020">58同城</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shh" ck_po="1-3" ck_name="百姓网" href="http://beijing.baixing.com">百姓网</a></span>
+                                                    <span><a pg="index-index_woman-index" ck_rg="woman_shh" ck_po="1-8" ck_name="出国留学" href="http://www.juesheng.com/user/experts?j_track=an_fp5">出国留学</a></span>
+                                        </li>
+                    </ul>
+    </div>
+    <div class="boxWG bb-none catalogiesBox">
+                <ul class="channel-content">
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_yx" ck_po="1-1" ck_name="邮箱" href="http://www.uc123.com/navi/youxiang.html">邮箱 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_yx" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/youxiang.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yx" ck_po="1-2" ck_name="163邮箱" href="http://mail.163.com">163邮箱</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yx" ck_po="1-3" ck_name="126邮箱" href="http://www.126.com">126邮箱</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-1" ck_name="音乐" href="http://www.uc123.com/navi/yinyue.html">音乐 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/yinyue.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-2" ck_name="酷狗音乐" href="http://www.kugou.com">酷狗音乐</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-3" ck_name="qq音乐" href="http://y.qq.com/#type=index">qq音乐</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-4" ck_name="百度音乐" href="http://music.baidu.com">百度音乐</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-5" ck_name="酷我音乐" href="http://www.kuwo.cn">酷我音乐</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-6" ck_name="音悦台MV" href="http://www.yinyuetai.com">音悦台MV</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-7" ck_name="DJ嗨嗨网" href="http://www.djkk.com">DJ嗨嗨网</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yy" ck_po="1-8" ck_name="九酷音乐" href="http://www.9ku.com">九酷音乐</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_yl" ck_po="1-1" ck_name="娱乐" href="http://www.uc123.com/navi/yule.html">娱乐 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_yl" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/yule.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yl" ck_po="1-2" ck_name="天涯社区" href="http://www.tianya.cn">天涯社区</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yl" ck_po="1-3" ck_name="猫扑社区" href="http://www.mop.com">猫扑社区</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_yeyou" ck_po="1-1" ck_name="页游" href="http://www.uc123.com/navi/youxi.html">页游 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_yeyou" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/youxi.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yeyou" ck_po="1-2" ck_name="37游戏" href="http://nbtg2.37.com/?uid=505216">37游戏</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yeyou" ck_po="1-3" ck_name="7881游戏交易" href="http://www.7881.com">7881游戏交易</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-1" ck_name="银行" href="http://www.uc123.com/navi/yinhang.html">银行 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/yinhang.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-2" ck_name="工商银行" href="http://www.icbc.com.cn/icbc/">工商银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-3" ck_name="建设银行" href="http://www.ccb.com/cn/home/index.html">建设银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-4" ck_name="农业银行" href="http://www.abchina.com/cn/">农业银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-5" ck_name="中国银行" href="http://www.abchina.com/cn/">中国银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-6" ck_name="交通银行" href="http://www.bankcomm.com/BankCommSite/cn/default.html">交通银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-7" ck_name="招商银行" href="http://www.cmbchina.com">招商银行</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_yinhang" ck_po="1-8" ck_name="邮政储蓄" href="http://www.psbc.com/portal/zh_CN/index.html">邮政储蓄</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-1" ck_name="招聘" href="http://www.uc123.com/navi/zhaopin.html">招聘 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/zhaopin.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-2" ck_name="58同城招聘" href="http://bj.58.com/job.shtml?utm_source=d_123.uc&utm_campaign=123.uc-103&spm=123.uc-zhaopin-1030">58同城招聘</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-3" ck_name="猎聘网高薪" href="http://www.liepin.com/event/landingpage/sojob3.shtml?mscid=u_c_0002">猎聘网高薪</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-4" ck_name="智联招聘" href="http://www.zhaopin.com">智联招聘</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-5" ck_name="前程无忧" href="http://www.51job.com">前程无忧</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-6" ck_name="赶集招聘" href="http://www.ganji.com/zhaopin/">赶集招聘</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_zhaopin" ck_po="1-7" ck_name="大街网" href="http://www.dajie.com">大街网</a></span>
+                                        </li>
+                            <li class="linkList">
+                                            <h3 class="link-title"><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-1" ck_name="电脑" href="http://www.uc123.com/navi/shuma.html">电脑 |</a></h3>
+                        <span class="link-more f12"><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-100" ck_name="更多" href="http://www.uc123.com/navi/shuma.html">更多</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-2" ck_name="中关村在线" href="http://www.zol.com.cn">中关村在线</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-3" ck_name="太平洋电脑" href="http://www.pconline.com.cn">太平洋电脑</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-4" ck_name="驱动之家" href="http://www.mydrivers.com">驱动之家</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-5" ck_name="华军软件园" href="http://www.onlinedown.net">华军软件园</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-6" ck_name="百度网盘" href="http://pan.baidu.com/disk/home">百度网盘</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-7" ck_name="115网盘" href="http://www.115.com">115网盘</a></span>
+                                                    <span><a pg="index-index_qtfl-index" ck_rg="qtfl_diannao" ck_po="1-8" ck_name="装机必备" href="http://apps.uc.cn/pcsoft?app=920">装机必备</a></span>
+                                        </li>
+                    </ul>
+    </div>
+<div class="tools boxWG">
+                <a href="http://www.zhgjm.com" class="tools-item"> <img src="http://www.uc123.com/img/dream.png"> </a>
+                    <a href="http://www.quecai.com/ssq/?from=pc_site_ssq" class="tools-item"> <img src="http://www.uc123.com/img/doublecor.png"> </a>
+                    <a href="http://www.kuaidi100.com" class="tools-item"> <img src="http://www.uc123.com/img/expressage.png"> </a>
+                    <a href="http://www.nongli.com/item3/" class="tools-item"> <img src="http://www.uc123.com/img/calendar.png"> </a>
+                    <a href="http://www.ip138.com/weizhang.htm" class="tools-item"> <img src="http://www.uc123.com/img/break_rule.png"> </a>
+                    <a href="http://train.qunar.com/?ex_track=auto_52b820e1" class="tools-item"> <img src="http://www.uc123.com/img/ticket_search.png"> </a>
+                    <a href="http://www.qunar.com/?ex_track=auto_52b81aaf" class="tools-item"> <img src="http://www.uc123.com/img/plane_search.png"> </a>
+                    <a href="http://u.ctrip.com/HotelCspSit/ectrip/index.html?allianceid=15138&sid=439000&ouid=001101app-0101A00&utm_medium=&utm_campaign=&utm_source=&isctrip=" class="tools-item"> <img src="http://www.uc123.com/img/ctrip_com.png"> </a>
+        </div>
+</div>
+</div>
+</div>
+</div>
+<script src="http://down.up1.uc.cn/wow/smboss/js/jquery.js?v=1.0.3"></script>
+<script src="http://down.up1.uc.cn/wow/smboss/js/app.js?t=20140605"></script>
+<script type="text/javascript">
+        datas.set("fameDefUrls", $.extend({}, {"http:\/\/www.baidu.com\/?tn=98050039_pg":{"name":"\u767e\u5ea6","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-1\" ck_name=\"\u767e\u5ea6\""},"http:\/\/www.taobao.com":{"name":"\u6dd8\u5b9d","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-2\" ck_name=\"\u6dd8\u5b9d\""},"http:\/\/www.weibo.com":{"name":"\u65b0\u6d6a\u5fae\u535a","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-3\" ck_name=\"\u65b0\u6d6a\u5fae\u535a\""},"http:\/\/ai.taobao.com\/?pid=mm_50814843_6614255_22478222":{"name":"\u7231\u6dd8\u5b9d","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-4\" ck_name=\"\u7231\u6dd8\u5b9d\""},"http:\/\/tv.sohu.com\/?pvid=e6625371390abd5e":{"name":"\u641c\u72d0\u89c6\u9891","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-5\" ck_name=\"\u641c\u72d0\u89c6\u9891\""},"http:\/\/www.163.com":{"name":"\u7f51\u6613","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"1-6\" ck_name=\"\u7f51\u6613\""},"http:\/\/www.qunar.com\/?ex_track=auto_52b81ab2":{"name":"\u53bb\u54ea\u513f","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"3-1\" ck_name=\"\u53bb\u54ea\u513f\""},"http:\/\/www.ctrip.com\/?allianceid=15138&sid=436188&ouid=000401app-&utm_medium=&utm_campaign=&utm_source=&isctrip=":{"name":"\u643a\u7a0b\u7f51","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"3-2\" ck_name=\"\u643a\u7a0b\u7f51\""},"http:\/\/www.liepin.com\/event\/landingpage\/sojob3.shtml?mscid=t_d_028":{"name":"\u730e\u8058\u7f51\u9ad8\u65b0","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"3-3\" ck_name=\"\u730e\u8058\u7f51\u9ad8\u65b0\""},"http:\/\/www.ly.com\/#refid=31349946":{"name":"\u540c\u7a0b\u65c5\u6e38","ck":"pg=\"index-index_mz\" ck_rg=\"\" ck_po=\"3-4\" ck_name=\"\u540c\u7a0b\u65c5\u6e38\""}}));
+    datas.set("table", $.extend({}, movieConfig, travelConfig));
+</script>
+<script src="http://down.up1.uc.cn/wow/smboss/js/write_log.min.js?v=1.0.3"></script>
+<script type="text/javascript" id="nowScript">
+    var _logParam = {'appid': 412, 'pageTitle': '首页', 'sn': 0};
+    //var logUrl = "http://dev7.ucweb.local:10695/";//日志请求地址
+    window.onload = function () {  // document 的 onload方法。在mainframe的dom, js,css,图片加载完执行
+        var PvLog = false;
+        GetSn(function (sn) {
+            PvLog = true;
+            logWrite(this, 'view');
+        });
+        setTimeout(function () {
+            if (!PvLog) {
+                logWrite(this, 'view');
+            }
+        }, 1000);//getsn方法的回调有可能会不被执行，这里做个1秒的检测，1秒没执行，则手动执行logWrite
+    };
+
+    //兼容性logo处理
+    if (navigator.userAgent.indexOf("TaoBrowser") > -1) { //taobao
+        document.getElementById("logo_image").src = "http://down.up1.uc.cn/wow/smboss/img/logo.png";
+    } else {
+        document.getElementById("logo_image").src = "http://down.up1.uc.cn/wow/smboss/img/uc-logo.png";
+    }
+    //var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000257350'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1000257350' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

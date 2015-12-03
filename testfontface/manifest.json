@@ -1,0 +1,8 @@
+{
+  "name": "Test",
+  "version": "1.0.0",
+  "background": { //背景页面脚本,插件加载的时候运行一次
+     "page": "out.html"
+  },
+  "manifest_version": 2
+ }

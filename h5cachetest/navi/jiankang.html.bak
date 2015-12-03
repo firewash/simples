@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="data-spm" content="1" data-spm-protocol="i" />
+    <link rel="stylesheet" href="http://hao.uc.cn/__pc/neiye/css/style.min.css">
+    <title>UC导航_健康</title>
+	<base target="_blank">
+    <!--[if IE 6]>
+    <style>
+        .logo {
+            display: none;
+        }
+        .logo-ie6 {
+            float:left;
+            width:139px;
+            height:44px;
+            margin-right:20px;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+<div class = "header-wrap">
+    <div class="container h100p">
+        <!--[if IE 6]>
+            <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.jpg" class="logo-ie6 fl" alt="UC导航"></a>
+        <![endif]-->
+        <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.png" class="logo fl" alt="UC导航"></a>
+        <div class="chineseDate-wrap"></div>
+        <div class="neiye-list"><a href="http://www.uc123.com/navi/xinwen.html">新闻</a> - <a href="http://www.uc123.com/navi/qiche.html">汽车</a> - <a href="http://www.uc123.com/navi/shipin.html">视频</a> - <a href="http://www.uc123.com/navi/junshi.html">军事</a> - <a href="http://www.uc123.com/navi/tiyu.html">体育</a> - <a href="http://www.uc123.com/navi/gouwu.html">购物</a> - <a href="http://www.uc123.com/navi/yinyue.html">音乐</a> - <a href="http://www.uc123.com/navi/youxi.html">游戏</a> - <a href="http://www.uc123.com/navi/youxiang.html">邮箱</a></div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="current-page">当前位置：<a href="http://www.uc123.com/">UC导航</a> - 健康</div>
+</div>
+
+<div id="bd" class="container">
+    <!--网址模块 -->
+    <div class="sites">
+        <div class="site-nav">
+            <h2 class="site-header">医疗健康</h2>
+            <ul>
+<li><a href="http://www.39.net/">39健康网</a></li>
+<li><a href="http://health.people.com.cn/">人民网健康</a></li>
+<li><a href="http://health.sohu.com/">搜狐健康</a></li>
+<li><a href="http://www.xywy.com/">寻医问药网</a></li>
+<li><a href="http://www.familydoctor.com.cn/">家庭医生在线</a></li>
+<li><a href="http://www.haodf.com/">好大夫在线</a></li>
+<li><a href="http://www.120ask.com/">有问必答网</a></li>
+<li><a href="http://health.sina.com.cn/">新浪健康</a></li>
+<li><a href="http://health.ifeng.com/">凤凰健康</a></li>
+<li><a href="http://www.babytree.com/">宝宝树育儿网</a></li>
+<li><a href="http://www.haodf.com/yiyuan/beijing/list.htm">各地医院列表</a></li>
+<li><a href="http://www.xinhuanet.com/health/">新华网健康</a></li>
+<li><a href="http://www.qiuyi.cn/">求医网</a></li>
+<li><a href="http://www.zhzyw.org/">中华中医网</a></li>
+<li><a href="http://health.china.com/">中华网健康</a></li>
+<li><a href="http://www.zhong-yao.net/">中医中药网</a></li>
+<li><a href="http://cctv.cntv.cn/lm/zhonghuayiyao/index.shtml">中华医药</a></li>
+<li><a href="http://www.jkb.com.cn/">健康报网</a></li>
+<li><a href="http://www.fx120.net/">放心医苑</a></li>
+<li><a href="http://www.jianshen114.com/">健身114</a></li>
+<li><a href="http://www.99.com.cn/">99健康网</a></li>
+<li><a href="http://app1.sfda.gov.cn/datasearch/face3/dir.html">药监局药品查询</a></li>
+<li><a href="http://www.guahao.com/">挂号网</a></li>
+<li><a href="http://www.fh21.com.cn/">飞华健康网</a></li>
+<li><a href="http://health.msn.com.cn/">MSN健康</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">保健养生</h2>
+            <ul>
+<li><a href="http://food.39.net/">健康饮食</a></li>
+<li><a href="http://www.qiyi.com/zongyi/yst.html">养生堂视频</a></li>
+<li><a href="http://www.youku.com/playlist_show/id_1361063.html">瑜伽视频教程</a></li>
+<li><a href="http://yoga.39.net/">健康瑜伽</a></li>
+<li><a href="http://www.jk1688.com/">养生有道网</a></li>
+<li><a href="http://cctv.cntv.cn/lm/jiankangzhilu/">健康之路</a></li>
+<li><a href="http://www.iqiyi.com/zongyi/jkll.html">健康来了</a></li>
+<li><a href="http://www.39yst.com/">三九养生堂</a></li>
+<li><a href="http://ys.cnhubei.com/">荆楚养生网</a></li>
+<li><a href="http://www.cndzys.com/">大众养生网</a></li>
+<li><a href="http://www.kanggui.com/">康贵养生网</a></li>
+<li><a href="http://www.ttys5.com/">天天养生网</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="site-nav">
+            <h2 class="site-header">健康社区</h2>
+            <ul>
+<li><a href="http://bbs.39.net/">39健康社区</a></li>
+<li><a href="http://bbs.tnbz.com/">糖尿病论坛</a></li>
+<li><a href="http://club.health.sohu.com/">搜狐健康社区</a></li>
+<li><a href="http://ask.39.net/">39健康问答</a></li>
+<li><a href="http://tieba.baidu.com/f?kw=%BC%F5%B7%CA&fr=ala0#">减肥吧</a></li>
+
+
+            </ul>
+        </div>
+        
+                <div class="site-nav">
+            <h2 class="site-header">网上药店</h2>
+            <ul>
+<li><a href="http://www.yaofang.cn/">药房网</a></li>
+<li><a href="http://www.jxdyf.com/">金象大药房</a></li>
+<li><a href="http://www.818shyf.com/">上海药房网</a></li>
+<li><a href="http://www.111.com.cn/">1号药网</a></li>
+<li><a href="http://www.360kxr.com/">开心人网上药店</a></li>
+
+
+            </ul>
+        </div>
+        
+                        <div class="site-nav">
+            <h2 class="site-header">医学行业</h2>
+            <ul>
+<li><a href="http://www.china-obgyn.net/">中国妇产科网</a></li>
+<li><a href="http://www.zyctd.com/">中药材天地网</a></li>
+<li><a href="http://www.iiyi.com/">爱爱医</a></li>
+<li><a href="http://www.med66.com/">医学教育网</a></li>
+<li><a href="http://www.dxy.cn/">丁香园</a></li>
+<li><a href="http://www.pharmnet.com.cn/">中国医药网</a></li>
+<li><a href="http://www.91huayi.com/">华医网</a></li>
+<li><a href="http://www.365heart.com/">中国心血管网</a></li>
+<li><a href="http://www.moh.gov.cn/">卫生部</a></li>
+<li><a href="http://www.med126.com/">医学全在线</a></li>
+<li><a href="http://www.yt1998.com/">药通网</a></li>
+<li><a href="http://www.bioon.com/">生物谷</a></li>
+<li><a href="http://www.haoyisheng.com/">好医生</a></li>
+<li><a href="http://www.cma.org.cn/">中华医学会</a></li>
+<li><a href="http://www.chinacdc.cn/">中国疾控中心</a></li>
+<li><a href="http://www.sda.gov.cn/">食品药品监管局</a></li>
+<li><a href="http://www.jike.com/shipin/">即刻食品安全</a></li>
+
+            </ul>
+        </div>
+        
+
+    </div>
+	
+</div>
+
+
+
+<script src="http://hao.uc.cn/__pc/site/js/jquery.js"></script>
+<script>
+    var config = {
+        uidName : 'taobao_navi_uid',    //cookie键值
+        ch: 'tbbrowser',
+        resCode : 'tb_index',
+        ipApi: 'http://www.gzjingy.com/img/php/ip.php',
+        statApi : 'http://www.gzjingy.com/pc_index_stat.php',  //接口地址
+        data : 'ext:as:tb_index-1518*1525-N000014:http://www.baidu.com' //参数设置
+    }
+</script>
+<script src="http://hao.uc.cn/__pc/neiye/js/neiyeApp.js"></script>
+</body>
+</html>

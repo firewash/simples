@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="data-spm" content="1" data-spm-protocol="i" />
+    <link rel="stylesheet" href="http://a.tbcdn.cn/apps/wwshare/css/navi/style.css">
+    <title>UC导航_卖家</title>
+	<base target="_blank">
+</head>
+<body>
+<div class = "header-wrap">
+    <div class="container h100p">
+        <!--[if IE 6]>
+            <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.jpg" class="logo-ie6 fl" alt="UC导航"></a>
+        <![endif]-->
+        <a href="http://www.uc123.com/"><img src="http://hao.uc.cn/__pc/site/img/uc-logo.png" class="logo fl" alt="UC导航"></a>
+        <div class="chineseDate-wrap"></div>
+        <div class="neiye-list"><a href="http://www.uc123.com/navi/xinwen.html">新闻</a> - <a href="http://www.uc123.com/navi/qiche.html">汽车</a> - <a href="http://www.uc123.com/navi/shipin.html">视频</a> - <a href="http://www.uc123.com/navi/junshi.html">军事</a> - <a href="http://www.uc123.com/navi/tiyu.html">体育</a> - <a href="http://www.uc123.com/navi/gouwu.html">购物</a> - <a href="http://www.uc123.com/navi/yinyue.html">音乐</a> - <a href="http://www.uc123.com/navi/youxi.html">游戏</a> - <a href="http://www.uc123.com/navi/youxiang.html">邮箱</a></div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="current-page">当前位置：<a href="http://www.uc123.com">UC导航</a> - 卖家</div>
+</div>
+
+<div id="bd" class="container">
+    <!--网址模块 -->
+    <div class="sites">
+		<!-- 分类开始(添加增加这段就行了) -->
+		<div class="site-nav">
+            <h2 class="site-header">批发推广</h2>
+            <ul>
+				<li><a href="http://www.1688.com">阿里巴巴</a></li>
+                <li><a href="http://www.alimama.com/index.htm">阿里妈妈</a></li>
+                <li><a href="http://www.shikee.com">试客联盟</a></li>
+                <li><a href="http://seller.aliexpress.com">全球速卖通</a></li>
+                <li><a href="http://daxue.taobao.com">淘宝大学</a></li>
+                <li><a href="http://taoke.alimama.com/membersvc/index.htm">淘宝客</a></li>
+                <li><a href="http://uz.lecu8.com">淘宝U站</a></li>
+                <li><a href="http://chongzhi.taobao.com/welcome.dox?method=welcome">淘宝充值</a></li>
+                <li><a href="http://www.7c.com/siteall/210cc.com/">210cc</a></li>
+                <li><a href="http://zhitongche.taobao.com">淘宝直通车</a></li>
+            </ul>
+        </div>
+		<!-- 分类结束 -->
+        <!-- 分类开始(添加增加这段就行了) -->
+        <div class="site-nav">
+            <h2 class="site-header">常用工具</h2>
+            <ul>
+                <li><a href="http://www.taodake.com">淘宝信誉查询</a></li>
+                <li><a href="http://zhuli.taobao.com">淘宝助理</a></li>
+                <li><a href="http://shu.taobao.com">淘宝指数</a></li>
+                <li><a href="http://bbs.taobao.com">淘宝论坛</a></li>
+                <li><a href="http://service.taobao.com/support/main/service_route.htm">淘宝客服</a></li>
+                <li><a href="http://login.350.net">350网店装修</a></li>
+                <li><a href="http://mofang.taobao.com">数据魔方</a></li>
+                <li><a href="http://www.taozhenduan.com">淘诊断</a></li>
+                <li><a href="http://diy.ganggg.com">在线模板生成</a></li>
+                <li><a href="http://www.kaitao.cn">开淘网咨询</a></li>
+                <li><a href="http://www.tuiha.com">推哈淘宝活动</a></li>
+                <li><a href="http://www.16xx8.com/photoshop/taobao/">淘宝美工教程</a></li>
+            </ul>
+        </div>
+        <!-- 分类结束 -->
+    </div>
+	
+</div>
+
+
+<script src="http://a.tbcdn.cn/apps/wwshare/js/navi/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+        //统计
+        var url = 'http://www.gzjingy.com/pc_index_stat.php',  //接口地址
+            data = 'ext:as:navi_pc_index-1518*1525-N000012:http://www.baidu.com';     //参数设置
+
+        
+        $('.container').click(function() {
+            $.ajax({
+                type: 'GET',
+                dataType: 'jsonp',
+                url: url,
+                'content-type' : 'application/x-javascript',
+                data: {
+                    ourl: data,
+					from:'index'   
+                }
+            });
+        });
+    });
+</script>
+<script>
+
+    $(document).ready(function() {
+        var model = {};
+
+        //转换农历模块
+        model.ChineseCalendar = function(dateObj) {
+            this.dateObj = (dateObj != undefined) ? dateObj : new Date();
+            this.SY = this.dateObj.getFullYear();
+            this.SM = this.dateObj.getMonth();
+            this.SD = this.dateObj.getDate();
+            this.lunarInfo = [0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+                0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+                0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+                0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+                0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+                0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+                0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+                0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+                0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+                0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,
+                0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+                0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+                0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+                0x05aa0,0x076a3,0x096d0,0x04bd7,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+                0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,
+                0x14b63];
+
+            //传回农历 y年闰哪个月 1-12 , 没闰传回 0
+            this.leapMonth = function(y){
+                return this.lunarInfo[y - 1900] & 0xf;
+            };
+            //传回农历 y年m月的总天数
+            this.monthDays = function(y, m){
+                return (this.lunarInfo[y - 1900] & (0x10000 >> m)) ? 30 : 29;
+            };
+            //传回农历 y年闰月的天数
+            this.leapDays = function(y){
+                if (this.leapMonth(y)) {
+                    return (this.lunarInfo[y - 1900] & 0x10000) ? 30 : 29;
+                }
+                else {
+                    return 0;
+                }
+            };
+            //传回农历 y年的总天数
+            this.lYearDays = function(y){
+                var i, sum = 348;
+                for (i = 0x8000; i > 0x8; i >>= 1) {
+                    sum += (this.lunarInfo[y - 1900] & i) ? 1 : 0;
+                }
+                return sum + this.leapDays(y);
+            };
+            //算出农历, 传入日期对象, 传回农历日期对象
+            //该对象属性有 .year .month .day .isLeap .yearCyl .dayCyl .monCyl
+            this.Lunar = function(dateObj){
+                var i, leap = 0, temp = 0, lunarObj = {};
+                var baseDate = new Date(1900, 0, 31);
+                var offset = (dateObj - baseDate) / 86400000;
+                lunarObj.dayCyl = offset + 40;
+                lunarObj.monCyl = 14;
+                for (i = 1900; i < 2050 && offset > 0; i++) {
+                    temp = this.lYearDays(i);
+                    offset -= temp;
+                    lunarObj.monCyl += 12;
+                }
+                if (offset < 0) {
+                    offset += temp;
+                    i--;
+                    lunarObj.monCyl -= 12;
+                }
+
+                lunarObj.year = i;
+                lunarObj.yearCyl = i - 1864;
+                leap = this.leapMonth(i);
+                lunarObj.isLeap = false;
+                for (i = 1; i < 13 && offset > 0; i++) {
+                    if (leap > 0 && i == (leap + 1) && lunarObj.isLeap == false) {
+                        --i;
+                        lunarObj.isLeap = true;
+                        temp = this.leapDays(lunarObj.year);
+                    }
+                    else {
+                        temp = this.monthDays(lunarObj.year, i)
+                    }
+                    if (lunarObj.isLeap == true && i == (leap + 1)) {
+                        lunarObj.isLeap = false;
+                    }
+                    offset -= temp;
+                    if (lunarObj.isLeap == false) {
+                        lunarObj.monCyl++;
+                    }
+                }
+
+                if (offset == 0 && leap > 0 && i == leap + 1) {
+                    if (lunarObj.isLeap) {
+                        lunarObj.isLeap = false;
+                    }
+                    else {
+                        lunarObj.isLeap = true;
+                        --i;
+                        --lunarObj.monCyl;
+                    }
+                }
+
+                if (offset < 0) {
+                    offset += temp;
+                    --i;
+                    --lunarObj.monCyl
+                }
+                lunarObj.month = i;
+                lunarObj.day = offset + 1;
+                return lunarObj;
+            };
+            //中文日期
+            this.cDay = function(m, d){
+                var nStr1 = ['日', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+                var nStr2 = ['初', '十', '廿', '卅', '　'];
+                var s;
+                if (m > 10) {
+                    s = '十' + nStr1[m - 10];
+                }
+                else {
+                    s = nStr1[m];
+                }
+                s += '月';
+                switch (d) {
+                    case 10:
+                        s += '初十';
+                        break;
+                    case 20:
+                        s += '二十';
+                        break;
+                    case 30:
+                        s += '三十';
+                        break;
+                    default:
+                        s += nStr2[Math.floor(d / 10)];
+                        s += nStr1[d % 10];
+                }
+                return s;
+            };
+            this.solarDay = function(){
+                var sDObj = new Date(this.SY, this.SM, this.SD);
+                var lDObj = this.Lunar(sDObj);
+                var tt = this.cDay(lDObj.month, lDObj.day);
+                lDObj = null;
+                return tt;
+            };
+            return this.solarDay();
+        };
+
+
+        //转换时间格式
+        model.calendar = function( date ) {
+            date = date ? date : new Date();
+            var dateObj = {};
+            dateObj.year = date.getFullYear();
+            dateObj.month = date.getMonth() + 1;
+            dateObj.date = date.getDate();
+            switch (date.getDay())
+            {
+                case 0:
+                    dateObj.day = '星期天';
+                    break;
+                case 1:
+                    dateObj.day = '星期一';
+                    break;
+                case 2:
+                    dateObj.day = '星期二';
+                    break;
+                case 3:
+                    dateObj.day = '星期三';
+                    break;
+                case 4:
+                    dateObj.day = '星期四';
+                    break;
+                case 5:
+                    dateObj.day = '星期五';
+                    break;
+                case 6:
+                    dateObj.day = '星期六';
+                    break;
+            }
+            return dateObj;
+        };
+        //日期
+        var chineseDate = '(农历' + model.ChineseCalendar() + ')',
+                now = model.calendar();
+        $('<span>' + now.month + '月' + now.date + '日' + ' ' + chineseDate + ' ' + now.day + '</span>').appendTo('.chineseDate-wrap');
+    });
+</script>
+</body>
+</html>

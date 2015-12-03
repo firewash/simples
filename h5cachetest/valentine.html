@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UC浏览器-七夕拼图送祝福</title>
+  <link rel="stylesheet" href="http://down.up1.uc.cn/wow/activity/valentine/styles/valentine.min.css?v=1.0.0">
+</head>
+<body id="valentine">
+<div id="header">
+  <h1 class="logo valentine-logo">七夕拼图送祝福</h1>
+</div>
+<div id="main">
+  <div class="jigsaw-puzzle-container">
+    <div class="jigsaw-puzzle-card card">
+      <ul class="card-list">
+        <li class="card-item card-item-0"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-1"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-2"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-3"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-4"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-5"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-6"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-7"><span><i class="card-gradient"></i></span></li>
+        <li class="card-item card-item-8"><span><i class="card-gradient"></i></span></li>
+      </ul>
+    </div>
+    <a class="jigsaw-puzzle-button" href="">开始拼图</a>
+    <div class="jigsaw-puzzle-cover"></div>
+    <div class="jigsaw-puzzle-success-button"></div>
+    <a class="jigsaw-puzzle-failure-button" href=""></a>
+  </div>
+  <div class="question-container">
+    <div class="question-status">
+      <div class="question-status-count lfloat">
+        <span class="question-correct-count">0</span>
+        <span class="question-error-count">0</span>
+      </div>
+      <div class="question-count rfloat"><span class="answer-count">0</span> / 9</div>
+    </div>
+    <div class="question-content"></div>
+    <a class="uc-browser" href="http://pc.uc.cn/" target="_blank"></a>
+    <a class="question-help" href="javascript:void(0)">求助好友</a>
+  </div>
+</div>
+<div id="footer"></div>
+<script src="http://down.up1.uc.cn/wow/common/scripts/lib/jquery-1.11.1.min.js"></script>
+<script src="http://down.up1.uc.cn/wow/common/scripts/lib/zeroclipboard/zeroclipboard.min.js"></script>
+<script src="http://down.up1.uc.cn/wow/common/scripts/utils.min.js"></script>
+<script src="http://down.up1.uc.cn/wow/common/scripts/dialog/dialog.min.js"></script>
+<script src="http://down.up1.uc.cn/wow/activity/valentine/scripts/valentine.min.js?v=1.0.5"></script>
+<script src="http://down.up1.uc.cn/wow/smboss/js/write_log.min.js?v=1.0.7"></script>
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<script type="text/javascript" id="nowScript">
+  var _logParam = {'appid': 412, 'pageTitle': 'UC七夕', 'sn': 0};
+  function GetSn(callback) {
+    window["feedback_sn"] = function(json_sn) {
+      try {
+        var JsonObj = JSON.parse(json_sn);
+        if (JsonObj.sn) {
+          _logParam.sn = JsonObj.sn;
+        }
+        callback.call(window, _logParam.sn);
+      } catch (e) {
+        callback.call(window, 0);
+      }
+    };
+
+    try {
+      if (('undefined' != typeof window['external']['wowSend']) || (chrome['wowPrivate'] && 'function' == typeof chrome['wowPrivate']['wowSend'])) {
+        if (-1 != navigator.userAgent.toLocaleLowerCase().indexOf('webkit')) {
+          var a = chrome.wowPrivate.wowSend('getsn', "", feedback_sn);
+        } else if (-1 != navigator.userAgent.toLocaleLowerCase().indexOf('trident')) {
+          window.external.wowSend('getsn', "", "feedback_sn");
+        }
+      } else {
+        callback.call(window, _logParam.sn);
+      }
+    } catch (e) {
+      callback.call(window, 0);
+    }
+  }
+  //var logUrl = "http://dev7.ucweb.local:10695/";//日志请求地址
+  window.onload = function () {  // document 的 onload方法。在mainframe的dom, js,css,图片加载完执行
+    var PvLog = false;
+    GetSn(function (sn) {
+      PvLog = true;
+      logWrite(this, 'view');
+    });
+    setTimeout(function () {
+      if (!PvLog) {
+        logWrite(this, 'view');
+      }
+    }, 1000);//getsn方法的回调有可能会不被执行，这里做个1秒的检测，1秒没执行，则手动执行logWrite
+  };
+
+</script>
+</body>
+</html>

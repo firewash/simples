@@ -1,0 +1,208 @@
+/*****     RESET     *****/
+html, body, div, span, 
+h1, h2, h3, h4, h5, h6, p,
+a, img, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    background:#f3f3f3;
+    color:#333;
+    font:12px/1.5 arial,\5b8b\4f53,georgia,verdana,helvetica,sans-serif;
+}
+.container {
+    width:980px;
+    margin:0 auto;
+    position: relative;
+}
+.header-wrap {
+    background:#4686de;
+    height:44px;
+}
+.logo {
+    float: left;
+    width:139px;
+    height:44px;
+    margin-right:20px;
+}
+.chineseDate-wrap{
+    float:left;
+    font-size:12px;
+    color: white;
+    height:28px;
+    line-height: 28px;
+    margin: 8px 0;
+    padding-left:12px;
+    border-left:1px dotted #93cae8;
+}
+.neiye-list{
+    float:right;
+    font-size:14px;
+    color: white;
+    height:28px;
+    line-height: 28px;
+    margin: 8px -8px 0 0;
+}
+.neiye-list a {
+    color:#fff;
+    text-decoration:none;
+}
+.neiye-list a:hover {
+    color:#ff0000;
+    text-decoration:none;
+}
+/***** 褰撳墠浣嶇疆     *****/
+.current-page {
+    margin-top:10px;
+    font-size:12px;
+    text-align:left;
+}
+.current-page a {
+    color:#333;
+    font-size:12px;
+    text-decoration:none;
+}
+.current-page a:hover {
+    color:#ff0000;
+    font-size:12px;
+    text-decoration:none;
+}
+
+.sites {
+    margin-top:10px;
+}
+.site-nav {
+    position: relative;
+    width: 960px;
+    padding: 15px;
+    overflow: hidden;
+    background: #fff;
+}
+.site-header {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+    color:#4686de;
+}
+.site-nav ul {
+    width: 930px;
+    margin: 0 auto;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    overflow: hidden;
+}
+.site-nav li {
+    float: left;
+    width: 185px;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.site-nav li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 32px;
+    padding-left: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+.site-nav li a:hover {
+    background-color:#f8f8f8;
+    color:#ff0000;
+}
+/*****  底部 *****/
+/* .floor{text-align:center;padding:10px 0 70px 0;font-size:12px;} */
+/* .floor p{line-height:30px;color:#a6a6a6;} */
+/***** 淘宝底部 *****/
+.g_foot {
+width: 980px;
+margin: 0 auto;
+    margin-top:30px;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53b8b\4f53;
+    padding: 7px 0 9px;
+    color: #b0b0b0;
+    text-align: left!important;
+    position: relative;
+    clear: both;
+}
+.g_foot-ali {
+    margin-right: 100px;
+    padding-left: 0;
+    border-bottom: 1px solid #D3D3D3;
+    padding-bottom: 8px;
+    height: 18px;
+}
+.g_foot-nav {
+    margin-top: 8px;
+    line-height: 20px;
+}
+.g_foot-toy {
+    position: absolute;
+    background: url(http://img01.taobaocdn.com/tps/i1/T1MMPaXkNjXXaXezbh-48-70.png) no-repeat;
+    _background: url(http://img01.taobaocdn.com/tps/i1/T1XgzaXX0kXXaXezbh-48-70.png) no-repeat;
+    width: 69px;
+    height: 100px;
+    display: block;
+    right: 0;
+    top: 0;
+}
+.g_foot-line {
+    display: none;
+    position: absolute;
+    background: url(http://img01.taobaocdn.com/tps/i1/T1I_56Xl0wXXXXXXXX-104-1.png) no-repeat;
+    width: 104px;
+    height: 1px;
+    right: 45px;
+    top: 33px;
+}
+.footer-more {
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    padding-top: 1px;
+    width: 82px;
+    float: left;
+    top: -2px \0/;
+}
+.footer-more-panel {
+    text-align: left;
+    position: absolute;
+    right: 26px;
+    bottom: -90px;
+    padding: 7px 3px 2px 2px;
+    border: 1px solid #C5C5C5;
+    width: 57px;
+    background: white;
+    line-height: 1.9;
+    display: none;
+}
+.g_foot a {
+    margin: 0 2px;
+    color: #3e3e3e;
+    text-decoration: none;
+}

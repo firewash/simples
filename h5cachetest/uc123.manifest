@@ -1,0 +1,13 @@
+﻿CACHE MANIFEST
+#timestamp:112
+
+cache:
+index.html
+a.js
+
+NETWORK:
+*
+
+
+FALLBACK:
+index.html ./offline.html
