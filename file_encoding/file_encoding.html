@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="gbk">
+
+		<title>file_encoding</title>
+	</head>
+
+	<body>
+		<p>网页的文件编码格式是UTF-8,但由于文件保存时包含了BOM信息，所以meta中的gbk声明会无效。
+			所以前端代码保存时，“不要保存BOM信息”</p>
+		<p id="script_log"></p>
+		
+		<script src="script.js" charset="utf-8"></script>
+	</body>
+</html>
