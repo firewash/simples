@@ -1,0 +1,25 @@
+
+<link crossorigin="crossorigin" href="https://g.alicdn.com/kg/??search-suggest/6.1.1/theme/pailitao/index-min.css" rel="stylesheet" type="text/css"/>
+
+<link href="https://g.alicdn.com/kg/??search-suggest/6.1.1/theme/pailitao/index-min.css" rel="stylesheet" type="text/css"/>
+
+<link href="a.css" rel="stylesheet" type="text/css"/>
+
+
+<script>
+//s说明：cdn上的css也设置了 access-control-allow-origin:*;如果不设置的话，则请求会失败。
+//输出：
+  //array
+  //null
+  //array
+  function test(){
+    var sheets = document.styleSheets;
+    for(var sheet in sheets){
+      console.log(sheet.rules)
+    }
+  }
+
+  setTimeout(test,1000);
+
+</script>
+
