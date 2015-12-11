@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body onload="init();">
+像使用AS一样使用JS来做动画：
+http://createjs.com/getting-started/easeljs
+
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+<canvas id="demoCanvas" width="500" height="300"></canvas>
+<script>
+    function init() {
+        // code here.
+        var stage = new createjs.Stage("demoCanvas");
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+        circle.x = 100;
+        circle.y = 100;
+        stage.addChild(circle);
+        stage.update();
+    }
+</script>
+</body>
+</html>
