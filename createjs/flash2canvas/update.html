@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CreateJS export from update</title>
+
+<script src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.4.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.6.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.3.0.min.js"></script>
+<script src="update.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var manifest = [
+		{src:"images/up_00000.png", id:"up_00000"},
+		{src:"images/up_00001.png", id:"up_00001"},
+		{src:"images/up_00002.png", id:"up_00002"},
+		{src:"images/up_00003.png", id:"up_00003"},
+		{src:"images/up_00004.png", id:"up_00004"},
+		{src:"images/up_00005.png", id:"up_00005"},
+		{src:"images/up_00006.png", id:"up_00006"},
+		{src:"images/up_00007.png", id:"up_00007"},
+		{src:"images/up_00008.png", id:"up_00008"},
+		{src:"images/up_00009.png", id:"up_00009"},
+		{src:"images/up_00010.png", id:"up_00010"},
+		{src:"images/up_00011.png", id:"up_00011"},
+		{src:"images/up_00012.png", id:"up_00012"},
+		{src:"images/up_00013.png", id:"up_00013"},
+		{src:"images/up_00014.png", id:"up_00014"},
+		{src:"images/up_00015.png", id:"up_00015"},
+		{src:"images/up_00016.png", id:"up_00016"},
+		{src:"images/up_00017.png", id:"up_00017"},
+		{src:"images/up_00018.png", id:"up_00018"},
+		{src:"images/up_00019.png", id:"up_00019"},
+		{src:"images/up_00020.png", id:"up_00020"},
+		{src:"images/up_00021.png", id:"up_00021"},
+		{src:"images/up_00022.png", id:"up_00022"},
+		{src:"images/up_00023.png", id:"up_00023"},
+		{src:"images/up_00024.png", id:"up_00024"},
+		{src:"images/up_00025.png", id:"up_00025"},
+		{src:"images/up_00026.png", id:"up_00026"},
+		{src:"images/up_00027.png", id:"up_00027"},
+		{src:"images/up_00028.png", id:"up_00028"},
+		{src:"images/up_00029.png", id:"up_00029"}
+	];
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.update();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(24);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="550" height="400" style="background-color:#ffffff"></canvas>
+</body>
+</html>
