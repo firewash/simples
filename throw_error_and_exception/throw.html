@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>throw_error</title>
+    <meta name="description" content="">
+    <meta name="author" content="wangle">
+    
+  </head>
+
+  <body>
+    <p>
+              在JS中，只有Error对象，没有Exception对象。即使是try...catch也是对Error的捕获(JS就提供了两种方式来捕获错误)。Error有多种子类，可以参考http://jingyan.baidu.com/article/1974b289ac48d0f4b1f774cc.html。比如：
+    </p>
+    <script>
+      //=>SyntaxError 语法错误
+      try{
+        JSON.parse("{12");
+      }catch(e){
+        console.log(e.constructor);
+      }
+      
+      //=>ReferenceError 引用错误
+      try{
+        JSON.parse("{12");
+      }catch(e){
+        console.log(e.constructor);
+       }
+    </script>
+    
+    <p>捕获错误可以使用onerror：</p>
+    <script>
+      window.onerror=function(message, file, lineNumber, columnNubmber, errorObject){
+        console.log("---- in error event: ", errorObject);
+        return false;
+      };
+    </script>
+    
+    <p>那如何主动抛出一个错误呢？请看下面代码：</p>
+    <script>
+      function throwMyError(){
+        var err = new Error("my error");
+        throw err;
+        
+      }
+      throwMyError();
+ 
+    </script>
+    <script>
+      a.b.c
+    </script>
+    
+  </body>
+</html>
