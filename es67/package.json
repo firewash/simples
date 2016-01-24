@@ -1,0 +1,17 @@
+{
+  "name": "es67",
+  "version": "1.0.0",
+  "description": "",
+  "main": "es6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+      "gulp": "^3.8.11",
+      "gulp-less": "^3.0.0",
+      "gulp-babel":"*",
+      "babel-preset-es2015":""
+  }
+}
