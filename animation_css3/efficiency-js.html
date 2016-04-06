@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证css3在android手机上的效率</title>
+    <meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>
+</head>
+<script>
+    //可以提取公共组件
+    (function(NS){
+        var keyframe_name_index = 0,
+            keyframeNameGen = function(){
+                return "CSSAnimationKeyFrame_"+ keyframe_name_index++;
+            };
+
+        var styleTag = (function(){
+            var style = document.createElement("style");
+            style.setAttribute("data-role","for-animation-css3");
+            document.head.appendChild(style);
+            return style;
+        })();
+        var sheet = styleTag.sheet;
+
+        function createFrameRule (rule){
+            var name = keyframeNameGen();
+            var temp = ["@-webkit-keyframes ",name,"{"];
+            for(var framekey in rule){
+                var frame = rule[framekey];
+                temp.push(framekey,"{")
+                //特殊处理一下tx,ty语法糖
+                var transform = frame["transform"]||"";
+                transform += frame.tx? " translateX("+frame.tx+")":"";
+                transform += frame.ty? " translateY("+frame.ty+")":"";
+                if(transform)frame["transform"] = transform;
+
+                for(var csskey in frame){
+                    var cssvalue = frame[csskey];
+                    if(cssvalue)temp.push(csskey,":",cssvalue,";");
+                }
+                temp.push("}");
+            }
+            temp.push("}");
+            var ruleString = temp.join("");
+            console.log(ruleString)
+            sheet.insertRule(ruleString,0);
+            return name;
+        }
+
+        /**
+         * rules={
+         *  0 {"left":"1","top":"10px;"}
+         *
+         *  2% {"left":"10px"}
+         * }
+         * */
+        function animate (opt,callback){
+            var dom = opt.dom, rule = opt.rule;
+            var animName = createFrameRule(rule);
+            dom.style.WebkitAnimation = [animName,"1s","infinite","0s"].join(" ");
+            document.onAnimationEnd=function(){
+                console.log("Animation end;");
+                callback.apply(dom,null);
+            }
+        }
+
+        (NS||window).CSSAnimation = {
+            animate: animate
+        }
+    })(window);
+
+
+</script>
+
+<!--behind for test -->
+<style>
+    .wrapper{
+        width:600px;
+        height:1136px;
+        position:fixed;
+    }
+    .outer{
+        position:absolute;
+        width:640px;
+        height:1136px;
+        background:url(background.png) no-repeat;
+    }
+
+    img{
+        position:absolute;
+        top:0;
+        left:0;
+        -webkit-animation: state_1 2s infinite 5s;
+        animation: state_1 2s infinite 5s;
+        margin:-50%;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var images = document.getElementsByTagName("img");
+        for(var i= 0,len = images.length,rule=null;i<len;i++){
+            rule = {
+                "0%":{
+                    tx: 100*Math.random()+"%",
+                    left:100*Math.random()+"%",
+                    transform: "scale(1)",
+                },
+                "100%":{
+                    tx: 100*Math.random()+"%",
+                    left:100*Math.random()+"%",
+                    transform: "scale(0.5)",
+                }
+            };
+            CSSAnimation.animate({
+                dom: images[i],
+                rule: rule
+            },function(){});
+        }
+
+    }
+</script>
+<body class="wrapper">
+    <div class="outer">
+        <img src="card-one.png">
+        <img src="mobile-rule.png" />
+        <img src="submit-result.png"/>
+        <img src="hand.png" />
+        <img src="card-end" />
+        <img src="card-two.png" />
+        <img src="card-three.png" />
+        <img src="card-win.png" />
+
+    </div>
+</div>
+
+</body>
+</html>
