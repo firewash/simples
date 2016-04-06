@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证css3在android手机上的效率</title>
+    <style>
+        .outer{
+            width:640px;
+            height:1136px;
+            background:url(background.png) no-repeat;
+        }
+
+        .inner{
+            position:absolute;
+            top:100%;
+            left:0;
+            -webkit-animation: state_1 1s ;;
+        }
+
+        @keyframes state_1
+        {
+            from {
+                top: 100%;
+            }
+            to {
+                top: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="outer">
+    <img class="inner" src="card-one.png" onclick="this.style.left='100px';">
+</div>
+</body>
+</html>

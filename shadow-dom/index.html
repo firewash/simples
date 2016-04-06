@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <body>
+      <style>
+        div{
+          border:5px solid red
+        }
+      </style>
+      <div id="nameTag">
+        Bob
+      </div>
+      <template id="nameTagTemplate">
+        <style>
+          .outer {
+            border: 5px solid brown;
+          }
+        </style>
+        <script>
+          setTimeout(function(){
+            document.querySelector('#a').style.background="red"
+          },1000)
+        </script>
+        <div class="outer">
+          <div id="a" class="boilerplate">
+            Hi! My name is
+          </div>
+          <div class="name">
+            Bob
+          </div>
+        </div>
+      </template>
+      <script>
+        var shadow = document.querySelector('#nameTag').createShadowRoot();
+        var template = document.querySelector('#nameTagTemplate');
+        var clone = document.importNode(template.content, true);
+        shadow.appendChild(clone);
+        setTimeout(function(){
+          document.querySelector('#a').style.background="red"
+        },2200)
+      </script>
+    </body>
+</html>

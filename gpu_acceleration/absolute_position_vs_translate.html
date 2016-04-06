@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .sample{
+        position:absolute;
+        left:0;
+        top:50px;
+        width:200px;
+        height:200px;
+        background:red;
+        overflow: hidden;
+        transition:all 1s linear;
+    }
+
+    .b{
+        top:260px;
+    }
+
+    .a.hover{
+        left:400px;
+    }
+
+    .b.hover{
+        transform: translate(400px,0);
+    }
+
+</style>
+
+<div id="a" class="sample a">
+   a 这是一段文字，测试用的而已。不用在意。这是一段文字，测试用的而已。不用在意。
+</div>
+
+<div id="b" class="sample b">
+   b 这是一段文字，测试用的而已。不用在意。这是一段文字，测试用的而已。不用在意。
+</div>
+
+<script>
+    window.onload=function(){
+        document.getElementById("a").classList.add("hover");
+        setTimeout(function(){
+            document.getElementById("b").classList.add("hover");
+        },1500)
+
+    }
+</script>
+</body>
+</html>
