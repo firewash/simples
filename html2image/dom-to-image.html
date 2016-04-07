@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="dom-to-image.js">
+
+    </script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="200px" height="200px" id="svg1">
+
+    <rect x="0" y="0" width="100%" height="100%"
+          fill="none" stroke="black"/>
+    <circle cx="100" cy="100" r="50"
+            style="stroke: black; fill: red;"/>
+</svg>
+<canvas id="canvas1"></canvas>
+<script>
+
+    var ctx = document.getElementById("canvas1").getContext('2d');
+    //https://developer.mozilla.org/en-US/docs/XMLSerializer
+    var svg_xml = (new XMLSerializer()).serializeToString(document.getElementById("svg1"));
+    var img = new Image();
+    img.src = "data:image/svg+xml;base64," + window.btoa(svg_xml);
+
+    //也可以直接写
+    //img.src = "data:image/svg+xml;base64," + window.btoa(document.getElementById("td1").innerHTML);
+
+    img.onload = function () {
+        //drawImage 可以用HTMLImageElement，HTMLCanvasElement或者HTMLVideoElement作为参数
+        ctx.drawImage(img, 0, 0);
+    };
+
+</script>
+</body>
+<script>
+
+    window.onload=function(){
+        domtoimage.toPng(document.body).then(function(dataURI){
+            var img = new Image();
+            img.src = dataURI;
+            document.body.appendChild(img);
+        })
+    }
+</script>
+</html>
