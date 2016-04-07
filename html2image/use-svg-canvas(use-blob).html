@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="abc">
+    1234中文
+</div>
+<script>
+    (function(NS){
+        function capture(dom){
+           //获取html节点内容
+            var content_xml  = (new XMLSerializer()).serializeToString(dom);
+
+            //配置SVG内容
+            var svg_html = [
+                'data:image/svg+xml;charset=utf-8,',
+                '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">',
+                '<foreignObject x="0" y="0" width="100%" height="100%">',
+                    content_xml,
+                '</foreignObject></svg>',
+            ].join("");
+
+            //设置图片
+            var img = new Image();
+            img.src = svg_html;
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            };
+            //document.body.appendChild(img);
+
+            //准备canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = 200;
+            canvas.height = 200;
+            canvas.style.border="10px solid blue";
+            document.body.appendChild(canvas);
+            var ctx = canvas.getContext('2d');
+        }
+
+        NS.Proxy = {
+            capture:capture
+        }
+    })(window);
+    //test
+    setTimeout(function(){
+        Proxy.capture(document.getElementById("abc"));
+
+    },100)
+</script>
+</body>
+
+</html>

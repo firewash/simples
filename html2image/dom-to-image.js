@@ -1,7 +1,7 @@
 //Github: https://github.com/tsayen/dom-to-image#usage
 
 
-// (function (global) {
+(function (global) {
     'use strict';
 
     var util = newUtil();
