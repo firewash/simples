@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>验证css3在android手机上的效率</title>
-    <meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>
+    <!--<meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>-->
 </head>
 <script>
     //可以提取公共组件
@@ -54,9 +54,14 @@
          * }
          * */
         function animate (opt,callback){
-            var dom = opt.dom, rule = opt.rule;
+            var dom = opt.dom,
+                duration = opt.duration || "1s",
+                loop = opt.loop || "infinite",
+                delay = opt.delay || "0s",
+                rule = opt.rule;
+
             var animName = createFrameRule(rule);
-            dom.style.WebkitAnimation = [animName,"1s","infinite","0s"].join(" ");
+            dom.style.WebkitAnimation = [animName,duration,loop,"step-start both",delay].join(" ");
             document.onAnimationEnd=function(){
                 console.log("Animation end;");
                 callback.apply(dom,null);
@@ -85,13 +90,13 @@
         background:url(background.png) no-repeat;
     }
 
-    img{
+    .outer *{
         position:absolute;
         top:0;
         left:0;
         -webkit-animation: state_1 2s infinite 5s;
         animation: state_1 2s infinite 5s;
-        margin:-50%;
+
     }
 </style>
 <script>
@@ -116,19 +121,35 @@
             },function(){});
         }
 
+        //灯的动画
+        var rule = {};
+        //560*24 * 540
+        for(var i=0; i<24; i++){
+            rule[parseInt(i/24*100)+"%"] = {
+                "background-position": (-i*560)+"px 0px"
+            }
+        }
+
+        var lamp = document.getElementById("lamp");
+        CSSAnimation.animate({
+            dom: lamp,
+            duration:"2s",
+            rule: rule
+        },function(){});
+
     }
 </script>
 <body class="wrapper">
-    <div class="outer">
-        <img src="card-one.png">
-        <img src="mobile-rule.png" />
-        <img src="submit-result.png"/>
-        <img src="hand.png" />
-        <img src="card-end" />
-        <img src="card-two.png" />
-        <img src="card-three.png" />
-        <img src="card-win.png" />
-
+    <div class="outer" id="outer">
+        <!--<img src="card-one.png">-->
+        <!--<img src="mobile-rule.png" />-->
+        <!--<img src="submit-result.png"/>-->
+        <!--<img src="hand.png" />-->
+        <!--<img src="card-end" />-->
+        <!--<img src="card-two.png" />-->
+        <!--<img src="card-three.png" />-->
+        <!--<img src="card-win.png" />-->
+        <div id="lamp" style="width:560px;height:540px;background-image:url(ani-lamp.png); background-attachment:fixed;background-position: 0 0;background-repeat: no-repeat;border:1px solid red">24帧</div>
     </div>
 </div>
 
