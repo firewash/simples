@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>验证css3在android手机上的效率</title>
     <script src="promise-polyfill.js"></script>
-    <!--<meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>-->
+    <meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>
 </head>
 <body class="wrapper">
 <script>
@@ -23,9 +23,28 @@
         })();
         var sheet = styleTag.sheet;
 
+        //让出入的rule自动加上前缀(低配手机还是需要的)
+        var cssprefix = (function(){
+                var div = document.createElement('div');
+                var style = div.style;
+                if (style.hasOwnProperty("webkitTransition")) {
+                    return '-webkit-';
+                } else if (style.hasOwnProperty("MozTransition")) {
+                    return '-moz-';
+                } else if (style.hasOwnProperty("oTransition")) {
+                    return '-o-';
+                } else if (style.hasOwnProperty("msTransition")) {
+                    return '-ms-';
+                }else return '';
+            })(),
+            cssfix = function(prop){
+                return cssprefix + prop;
+            };
+
+        //创建帧动画css规则,使用JSON数据
         function createFrameRule(rule) {
             var name = keyframeNameGen();
-            var temp = ["@-webkit-keyframes ", name, "{"];
+            var temp = ["@"+cssfix("keyframes")," ", name, "{"];
             for (var framekey in rule) {
                 var frame = rule[framekey];
                 temp.push(framekey, "{")
@@ -33,7 +52,7 @@
                 var transform = frame["transform"] || "";
                 transform += frame.tx ? " translateX(" + frame.tx + ")" : ""; //todo: tx, ty还不生效
                 transform += frame.ty ? " translateY(" + frame.ty + ")" : "";
-                if (transform)frame["transform"] = transform;
+                if (transform)frame[cssfix("transform")] = transform;
 
                 for (var csskey in frame) {
                     var cssvalue = frame[csskey];
@@ -70,7 +89,7 @@
             var animName = createFrameRule(rule);
             //2s  CSSAnimationKeyFrame_7 1 step-end  normal forwards
             //<animation-name><duration-time><timing-function><delay-time><animation-iteration-count><animation-direction><animation-fill-mode><single-animation-play-state>
-            dom.style.WebkitAnimation = [duration, animName, loop, timing, direction, fillmode].join(" ");
+            dom.style[cssfix("animation")] = [duration, animName, loop, timing, direction, fillmode].join(" ");
             dom.addEventListener("webkitAnimationEnd", function () {
                 console.log("Animation end;");
                 callback.apply(dom, null);
@@ -108,7 +127,7 @@
 
 <div class="outer" id="outer">
     <div id="lamp-shake"
-         style="display:block;width:560px;height:540px;background-image:url(golden-lamp.png); background-position: -51px 151px;background-repeat: no-repeat;border:1px solid red"></div>
+         style="display:none;width:560px;height:540px;background-image:url(golden-lamp.png); background-position: -51px 151px;background-repeat: no-repeat;border:1px solid red"></div>
     <div id="blanket-fly"
          style="display:none;;width:570px;height:440px;background-image:url(ani-blanket.png); background-position: 0 0;margin:269px -59px; background-repeat: no-repeat;border:1px solid red"></div>
     <div id="lamp-fly"
@@ -117,13 +136,10 @@
     </div>
     <div id="god"
          style="display:none;;width:560px;height:540px;background-image:url(god.png); background-position: 0 0;background-repeat: no-repeat;border:1px solid red">
-
     </div>
     <div id="win"
-         style="display:none;;width:640px;height:1136px;background-image:url(card-win.png); background-position: 0 0;background-repeat: no-repeat;border:1px solid red">
-
+         style="display:none;;width:640px;height:1136px;background-image:url(card-win.png); background-position: center center;background-repeat: no-repeat;border:1px solid red">
     </div>
-
 </div>
 <script>
     function go() {
@@ -132,17 +148,17 @@
         //动画链条
         Promise.resolve().then(function () {
             //加载或显示图片
-            //.getElementById("lamp-shake").style.display = "block";
+            $("lamp-shake").style.display = "block";
             return true;
         }).then(function () {
             //return true
             return new Promise(function (resolve, reject) {
                 //1 灯晃一晃
                 var rule = {
-                    "0%": {"-webkit-transform": "rotate(0deg)"},
-                    "25%": {"-webkit-transform": "rotate(-30deg)"},
-                    "75%": {"-webkit-transform": "rotate(30deg)"},
-                    "100%": {"-webkit-transform": "rotate(0deg)"}
+                    "0%": {"transform": "rotate(0deg)"},
+                    "25%": {"transform": "rotate(-30deg)"},
+                    "75%": {"transform": "rotate(30deg)"},
+                    "100%": {"transform": "rotate(0deg)"}
                 };
                 CSSAnimation.animate({
                     dom: "lamp-shake",
@@ -155,11 +171,11 @@
             })
         }).then(function () {
             //加载或显示图片,隐藏或消除图片
-            $("lamp-fly").style.display = "block";
-            $("blanket-fly").style.display = "block";
             $("lamp-shake").style.display="none";
             return true;
         }).then(function () {
+            $("lamp-fly").style.display = "block";
+            $("blanket-fly").style.display = "block";
             var p1 = new Promise(function (resolve, reject) {
                 //2.1 灯飞
                 var rule = {
@@ -244,15 +260,20 @@
             document.getElementById("win").style.display="block";
             return true;
         }).then(function () {
+            //加载或显示图片,隐藏或消除图片
+            //document.getElementById("god").style.display="none";
+            //document.getElementById("win").style.display="block";
+            return true;
+        }).then(function () {
             //显示卡片
+            document.getElementById("win").style.display="block";
             return new Promise(function(resolve,reject){
                 var rule = {
                     "from": {
-                        "transform": "translateY(1570px) "
+                        "transform": "translateY(1200px)"
                     },
-
                     "to": {
-                        "transform": "translateY(100px) "
+                        "transform": "translateY(0px)"
                     }
                 };
 
@@ -266,18 +287,10 @@
                     resolve();
                 });
             });
-        }).then(function () {
-            //加载或显示图片,隐藏或消除图片
-            //document.getElementById("god").style.display="none";
-            //document.getElementById("win").style.display="block";
-            return true;
         }).catch(function (e) {
             console.log(e);
         })
-    }
-    ;
-
-
+    };
     window.onload = function () {
         document.body.onclick = function () {
             go();
