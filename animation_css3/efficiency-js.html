@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>验证css3在android手机上的效率</title>
     <script src="promise-polyfill.js"></script>
-    <meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”>
+    <meta id="vp" name="viewport" content="width=640,height=1136, initial-scale=0.2, maximum-scale=1.0, user-scalable=0">
+    <style>
+        html,body{
+            margin:0;padding:0;
+        }
+    </style>
+    <script>
+        window.onerror=function(e){alert(e)}
+        var virture_width = 640,
+                virture_height = 1136,
+                device_width = window.screen.width,
+                scale = device_width/640;
+        document.write('<meta name="viewport" content="width='+virture_width+',height='+virture_height+', initial-scale='+scale+', maximum-scale=1.0, user-scalable=0">');
+
+    </script>
 </head>
 <body class="wrapper">
 <script>
@@ -86,35 +100,55 @@
             if(!(rule["100%"]||rule["to"])){
                 console.log("No (100%) or (to) anmition frame, animation play error")
             }
+            if(!(rule["0%"]||rule["from"])){
+                console.log("No (0%) or (from) anmition frame, animation play error"); // 虽然不是必须,但是我们这样要求,会让设置更简单
+            }
             var animName = createFrameRule(rule);
-            //2s  CSSAnimationKeyFrame_7 1 step-end  normal forwards
+            //设置动画元素初始状态,防止跳动
+            var firstFrame = rule["0%"]||rule["from"];
+            for(var prop in firstFrame){
+                dom.style["prop"] = firstFrame[prop];
+            }
             //<animation-name><duration-time><timing-function><delay-time><animation-iteration-count><animation-direction><animation-fill-mode><single-animation-play-state>
             dom.style[cssfix("animation")] = [duration, animName, loop, timing, direction, fillmode].join(" ");
+
+            dom.style.display = "block";
+
             dom.addEventListener("webkitAnimationEnd", function () {
                 console.log("Animation end;");
                 callback.apply(dom, null);
             });
         }
+        //todo 概念
+        function stage(opt){
+
+        }
+
+        //层,主要用来承载图片
+        function layer(opt){
+            var dom = document.createElement("div");
+            dom.style.cssText="display:block;width:560px;height:540px;background-image:url(golden-lamp.png); background-position: -51px 151px;background-repeat: no-repeat;border:1px solid red";
+
+            return dom;
+        }
 
         (NS || window).CSSAnimation = {
-            animate: animate
+            layer:layer,
+            animate: animate,
+
         }
     })(window);
 </script>
 
 <!--behind for test -->
 <style>
-    .wrapper {
-        width: 600px;
-        height: 1136px;
-        position: fixed;
-    }
 
     .outer {
         position: absolute;
-        width: 640px;
-        height: 1136px;
-        background: url(background.png) no-repeat;
+        width: 100%;
+        height: 100%;
+        background: url(background.png) no-repeat ;
+        background-size: cover;
     }
 
     .outer * {
@@ -127,30 +161,35 @@
 
 <div class="outer" id="outer">
     <div id="lamp-shake"
-         style="display:none;width:560px;height:540px;background-image:url(golden-lamp.png); background-position: -51px 151px;background-repeat: no-repeat;border:1px solid red"></div>
+         style="display:none;width:640px;height:345px;margin-top:400px;background-image:url(golden-lamp.png); background-position: center;background-repeat: no-repeat;border:1px solid red"></div>
     <div id="blanket-fly"
-         style="display:none;;width:570px;height:440px;background-image:url(ani-blanket.png); background-position: 0 0;margin:269px -59px; background-repeat: no-repeat;border:1px solid red"></div>
+         style="display:none;;width:570px;height:345px;margin:538px 35px;background-image:url(ani-blanket.png); background-position: center;background-repeat: no-repeat;border:1px solid red"></div>
     <div id="lamp-fly"
-         style="display:none;;width:560px;height:540px;background-image:url(lamp.png); background-position: 0 0;background-repeat: no-repeat;border:1px solid red">
+         style="display:none;;width:640px;height:345px;margin-top:383px;background-image:url(lamp.png); background-position: center;background-repeat: no-repeat;border:1px solid red">
         24帧
     </div>
     <div id="god"
-         style="display:none;;width:560px;height:540px;background-image:url(god.png); background-position: 0 0;background-repeat: no-repeat;border:1px solid red">
+         style="display:none;;width:560px;height:540px;margin:40px;background-image:url(god.png); background-position: center;background-repeat: no-repeat;border:1px dashed red">
     </div>
     <div id="win"
          style="display:none;;width:640px;height:1136px;background-image:url(card-win.png); background-position: center center;background-repeat: no-repeat;border:1px solid red">
+        <form>
+            <input style="width:300px;height:40px;"/>
+        </form>
     </div>
 </div>
 <script>
     function go() {
-        var $ = function(id){return document.getElementById(id)};
+        var $ = function(id){return document.getElementById(id)},
+                show = function(id){
+                    $(id).style.display="block";
+                },
+                hide=function(id){
+                    $(id).style.display="none";
+                };
 
         //动画链条
         Promise.resolve().then(function () {
-            //加载或显示图片
-            $("lamp-shake").style.display = "block";
-            return true;
-        }).then(function () {
             //return true
             return new Promise(function (resolve, reject) {
                 //1 灯晃一晃
@@ -170,12 +209,9 @@
                 });
             })
         }).then(function () {
-            //加载或显示图片,隐藏或消除图片
-            $("lamp-shake").style.display="none";
+            hide("lamp-shake");
             return true;
         }).then(function () {
-            $("lamp-fly").style.display = "block";
-            $("blanket-fly").style.display = "block";
             var p1 = new Promise(function (resolve, reject) {
                 //2.1 灯飞
                 var rule = {
@@ -189,7 +225,7 @@
                         "transform": "translateX(-100px) translateY(200px) scale(0.5) rotate(20deg)"
                     },
                     "to": {
-                        "transform": "translateX(-150px) translateY(600px) scale(0.2)  rotate(0deg)"
+                        "transform": "translateX(-150px) translateY(270px) scale(0.2)  rotate(0deg)"
                     }
                 };
 
@@ -227,27 +263,24 @@
             });
 
             return Promise.all([p1, p2]);
-
         }).then(function () {
-            //加载或显示图片,隐藏或消除图片
-            $("god").style.display = "block";
+            hide("blanket-fly");
             return true;
         }).then(function () {
             return new Promise(function(resolve,reject){
                 //3 神出
                 var rule = {
                     "from": {
-                        "transform": "translateX(-80px) translateY(570px) scale(0.1)  rotate(0deg)"
+                        "transform": "translateX(-100px) translateY(470px) scale(0.1)"
                     },
-
                     "to": {
-                        "transform": "translateX(150px) translateY(400px) scale(1)  rotate(0deg)"
+                        "transform": "translateX(50px) translateY(200px) scale(1)"
                     }
                 };
 
                 CSSAnimation.animate({
                     dom: "god",
-                    duration: "2s",
+                    duration: "1s",
                     timing:"ease-in-out",
                     rule: rule
                 }, function () {
@@ -255,18 +288,15 @@
                 });
             })
         }).then(function () {
-            //加载或显示图片,隐藏或消除图片
-            document.getElementById("god").style.display="none";
-            document.getElementById("win").style.display="block";
-            return true;
+           return new Promise(function(resolve,reject){
+               setTimeout(function(){
+                   hide("god") ;
+                   hide("lamp-fly") ;
+                   resolve();
+               },500);
+           })
         }).then(function () {
-            //加载或显示图片,隐藏或消除图片
-            //document.getElementById("god").style.display="none";
-            //document.getElementById("win").style.display="block";
-            return true;
-        }).then(function () {
-            //显示卡片
-            document.getElementById("win").style.display="block";
+            //4 显示卡片
             return new Promise(function(resolve,reject){
                 var rule = {
                     "from": {
