@@ -7,7 +7,7 @@
     <meta id="vp" name="viewport" content="width=640,height=1136, initial-scale=0.2, maximum-scale=1.0, user-scalable=0">
     <style>
         html,body{
-            margin:0;padding:0;
+            margin:0;padding:0;overflow:hidden;
         }
     </style>
     <script>
@@ -89,14 +89,15 @@
          * }
          * */
         function animate(opt, callback) {
-            var dom = opt.dom.tagName?opt.dom:document.getElementById(opt.dom) ,
-                    duration = opt.duration || "1s",
-                    loop = opt.loop || 1,
-                    direction = "normal",
-                    timing = opt.timing || "linear",
-                    fillmode = "forwards", //animation-fill-mode : none | forwards | backwards | both;
-                    delay = opt.delay || "0s",
-                    rule = opt.rule;
+            var dom = opt.dom.tagName?opt.dom:document.getElementById(opt.dom) ;
+            if(!dom){console.log("No dom for animate");return;};
+            var duration = opt.duration || "1s",
+                loop = opt.loop || 1,
+                direction = "normal",
+                timing = opt.timing || "linear",
+                fillmode = "forwards", //animation-fill-mode : none | forwards | backwards | both;
+                delay = opt.delay || "0s",
+                rule = opt.rule;
             if(!(rule["100%"]||rule["to"])){
                 console.log("No (100%) or (to) anmition frame, animation play error")
             }
@@ -110,13 +111,13 @@
                 dom.style["prop"] = firstFrame[prop];
             }
             //<animation-name><duration-time><timing-function><delay-time><animation-iteration-count><animation-direction><animation-fill-mode><single-animation-play-state>
-            dom.style[cssfix("animation")] = [duration, animName, loop, timing, direction, fillmode].join(" ");
+            dom.style[cssfix("animation")] = [duration, animName, timing, delay, loop,  direction, fillmode].join(" ");
 
             dom.style.display = "block";
 
             dom.addEventListener("webkitAnimationEnd", function () {
                 console.log("Animation end;");
-                callback.apply(dom, null);
+                callback && callback.apply(dom, null);
             });
         }
         //todo 概念
@@ -160,8 +161,11 @@
 </style>
 
 <div class="outer" id="outer">
+
     <div id="lamp-shake"
-         style="display:none;width:640px;height:345px;margin-top:400px;background-image:url(golden-lamp.png); background-position: center;background-repeat: no-repeat;border:1px solid red"></div>
+         style="display:block;width:640px;height:345px;margin-top:400px;background-image:url(golden-lamp.png); background-position: center;background-repeat: no-repeat;border:1px solid red"></div>
+    <div id="hand" style="display:block;width:640px;height:345px;margin:200px;background-image:url(hand.png); background-position: center;background-repeat: no-repeat;border:1px solid red">
+    </div>
     <div id="blanket-fly"
          style="display:none;;width:570px;height:345px;margin:538px 35px;background-image:url(ani-blanket.png); background-position: center;background-repeat: no-repeat;border:1px solid red"></div>
     <div id="lamp-fly"
@@ -173,44 +177,49 @@
     </div>
     <div id="win"
          style="display:none;;width:640px;height:1136px;background-image:url(card-win.png); background-position: center center;background-repeat: no-repeat;border:1px solid red">
-        <form>
-            <input style="width:300px;height:40px;"/>
+        <form style="margin:380px 270px">
+            <input style="width:200px;height:40px;"/>
         </form>
     </div>
 </div>
 <script>
-    function go() {
-        var $ = function(id){return document.getElementById(id)},
-                show = function(id){
-                    $(id).style.display="block";
-                },
-                hide=function(id){
-                    $(id).style.display="none";
-                };
+    //basic fn
+    var $ = function(id){return document.getElementById(id)},
+            show = function(id){
+                $(id).style.display="block";
+            },
+            hide=function(id){
+                var _=$(id);
+                _ && (_.style.display="none");
+            };
+            remove=function(id){
+                var _=$(id);
+                _ && _.parentNode && (_.parentNode.removeChild(_));
+            }
 
-        //动画链条
+    //动画链条
+    function go() {
         Promise.resolve().then(function () {
-            //return true
             return new Promise(function (resolve, reject) {
                 //1 灯晃一晃
                 var rule = {
                     "0%": {"transform": "rotate(0deg)"},
-                    "25%": {"transform": "rotate(-30deg)"},
-                    "75%": {"transform": "rotate(30deg)"},
+                    "25%": {"transform": "rotate(-10deg)"},
+                    "75%": {"transform": "rotate(15deg)"},
                     "100%": {"transform": "rotate(0deg)"}
                 };
                 CSSAnimation.animate({
                     dom: "lamp-shake",
                     duration: "0.5s",
-                    loop: 0,
+                    timing:"ease-in",
+                    loop: 2,
                     rule: rule
                 }, function () {
                     resolve();
                 });
             })
         }).then(function () {
-            hide("lamp-shake");
-            return true;
+            remove("lamp-shake");
         }).then(function () {
             var p1 = new Promise(function (resolve, reject) {
                 //2.1 灯飞
@@ -264,18 +273,13 @@
 
             return Promise.all([p1, p2]);
         }).then(function () {
-            hide("blanket-fly");
-            return true;
+            remove("blanket-fly");
         }).then(function () {
             return new Promise(function(resolve,reject){
                 //3 神出
                 var rule = {
-                    "from": {
-                        "transform": "translateX(-100px) translateY(470px) scale(0.1)"
-                    },
-                    "to": {
-                        "transform": "translateX(50px) translateY(200px) scale(1)"
-                    }
+                    "from": { "transform": "translateX(-100px) translateY(470px) scale(0.1)" },
+                    "to":   { "transform": "translateX(50px) translateY(200px) scale(1)"  }
                 };
 
                 CSSAnimation.animate({
@@ -289,22 +293,16 @@
             })
         }).then(function () {
            return new Promise(function(resolve,reject){
-               setTimeout(function(){
-                   hide("god") ;
-                   hide("lamp-fly") ;
-                   resolve();
-               },500);
+               remove("god") ;
+               remove("lamp-fly") ;
+               resolve();
            })
         }).then(function () {
             //4 显示卡片
             return new Promise(function(resolve,reject){
                 var rule = {
-                    "from": {
-                        "transform": "translateY(1200px)"
-                    },
-                    "to": {
-                        "transform": "translateY(0px)"
-                    }
+                    "from": {"transform": "translateY(1200px)"},
+                    "to": { "transform": "translateY(0px)" }
                 };
 
                 CSSAnimation.animate({
@@ -322,12 +320,26 @@
         })
     };
     window.onload = function () {
+        //小手
+        CSSAnimation.animate({
+            dom: "hand",
+            duration: "2s",
+            loop:"4",
+            timing:"linear",
+            delay:"0.5s",
+            rule: {
+                "from": {"transform": "translateX(0)"},
+                "25%": {"transform": "translateX(-100px)" },
+                "50%": {"transform": "translateX(0px)" },
+                "75%": {"transform": "translateX(-100px)" },
+                "to": { "transform": "translateX(0)" }
+            }
+        });
         document.body.onclick = function () {
+            remove("hand");
             go();
         }
     }
 </script>
-
-
 </body>
 </html>
