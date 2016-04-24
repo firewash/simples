@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证css3在android手机上的效率</title>
+    <style>
+        .outer{
+            width:640px;
+            height:1136px;
+            background:url(background.png) no-repeat;
+        }
+
+        img{
+            position:fixed;
+            top:100%;
+            left:0;
+            -webkit-animation: state_1 2s infinite 5s;
+            animation: state_1 2s infinite 5s;
+        }
+
+        img:nth-child(0){
+            left:0;
+            -webkit-animation: state_1 2s infinite 0s;
+            animation: state_1 1s infinite 0.1s;
+        }
+        img:nth-child(1){
+            left:10px;
+            -webkit-animation: state_1 2s infinite 0.1s;
+            animation: state_1 1s infinite 0.1s;
+        }
+        img:nth-child(2){
+            left:20px;;
+            -webkit-animation: state_1 2s infinite 0.2s;
+            animation: state_1 1s infinite 0.2s;
+        }
+        img:nth-child(3){
+            left:30px;
+            -webkit-animation: state_1 2s infinite 0.3s;
+            animation: state_1 1s infinite 0.3s;
+        }
+        img:nth-child(4){
+            top:0;
+            left:40px;
+            -webkit-animation: state_1 2s infinite 0.4s;
+            animation: state_1 1s infinite 0.4s;
+        }
+        img:nth-child(5){
+            left:50px;
+            -webkit-animation: state_1 2s infinite 0.5s;
+            animation: state_1 1s infinite 0.5s;
+        }
+        img:nth-child(6){
+            top:0;
+            left:60px;
+            -webkit-animation: state_1 2s infinite 0.6s;
+            animation: state_1 1s infinite 0.6s;
+        }
+        img:nth-child(7){
+            left:70px;
+            -webkit-animation: state_1 2s infinite 0.7s;
+            animation: state_1 1s infinite 0.7s;
+        }
+        img:nth-child(8){
+            top:0;
+            left:80px;
+            -webkit-animation: state_1 2s infinite 0.8s;
+            animation: state_1 1s infinite 0.8s;
+        }
+
+        @-webkit-keyframes  state_1{
+            0 {
+                top: 100%;
+                transform: scale(1);
+            }
+
+            100% {
+                top: 30%;;
+                transform: scale(0.2);
+            }
+        }
+
+        /*@keyframes state_1*/
+        /*{*/
+        /*from {*/
+        /*top: 100px;*/
+        /*}*/
+        /*to {*/
+        /*top: 0px;*/
+        /*}*/
+        /*}*/
+
+    </style>
+</head>
+<script>
+
+
+</script>
+<body>
+
+<div class="outer">
+    <img class="inner" src="card-one.png" onclick="this.style.left='100px';">
+    <img src="hand.png" />
+    <img src="card-end" />
+    <img src="card-two.png" />
+    <img src="card-three.png" />
+    <img src="card-win.png" />
+    <img src="mobile-rule.png" />
+    <img src="submit-result.png"/>
+</div>
+
+
+
+</body>
+</html>

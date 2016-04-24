@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这么简单的动画在C8815上FPS也就20</title>
+</head>
+<body>
+<style>
+    @-webkit-keyframes test {
+    from {transform: translateX(0) translateZ(0);}
+    50% {transform: translateX(10em)}
+    75%  {transform: translateX(-110.0em)}
+    to  {transform: translateX(0) translateZ(0);}
+    }
+
+    div{
+        width:1300px;
+        height:300px;
+        background:url(hand.png);
+        -webkit-animation: test 3s infinite;;
+    }
+</style>
+<div >
+
+</div>
+
+
+</body>
+</html>
