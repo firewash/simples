@@ -53,7 +53,7 @@
         }
         temp.push("}");
         var ruleString = temp.join("");
-        //console.log(ruleString);
+        console.log(name,": ",ruleString);
         sheet.insertRule(ruleString, 0);
         return name;
     }
